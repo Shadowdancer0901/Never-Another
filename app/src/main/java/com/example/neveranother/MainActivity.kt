@@ -18,14 +18,16 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            NeverAnotherTheme {
+            Tester()
+            //homepageUI()
+            /*NeverAnotherTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
-            }
+            }*/
         }
     }
 }
@@ -44,4 +46,9 @@ fun GreetingPreview() {
     NeverAnotherTheme {
         Greeting("Team")
     }
+}
+
+@Composable
+fun Tester(){
+    Text("hi there")
 }
