@@ -30,12 +30,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-
+            App()
         }
     }
 }
 
-@Preview
 @Composable
 fun App() {
     Column(modifier = Modifier
