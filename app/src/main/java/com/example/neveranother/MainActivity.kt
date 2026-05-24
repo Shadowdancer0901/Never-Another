@@ -10,8 +10,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -43,6 +45,7 @@ import com.example.neveranother.ui.theme.Cream
 import com.example.neveranother.ui.theme.Gray
 import com.example.neveranother.ui.theme.NeverAnotherTheme
 import com.example.neveranother.ui.theme.Salmon
+import com.example.neveranother.ui.theme.White
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,15 +54,19 @@ class MainActivity : ComponentActivity() {
 
         setContent() {
             App()
+
         }
     }
 }
+
+//Chris
 @Preview
 @Composable
 fun App() {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
+                .fillMaxHeight()
                 .padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
 
@@ -89,22 +96,40 @@ fun App() {
                     "", label = { Text("Øvre omkreds", fontSize = 8.sp) }, onValueChange = {},
                     placeholder = { Text("XX", color = Gray) },
                     modifier = Modifier
-                        .size(150.dp, 50.dp)
-                        .padding(end = 24.dp),
+                        .size(100.dp, 50.dp),
                     colors = OutlinedTextFieldDefaults.colors(
                         unfocusedBorderColor = Salmon,
                         unfocusedTextColor = Salmon)
+                )
+
+                val FirstInfoIcon = painterResource(R.drawable.info_icon)
+                Image(
+                    painter = FirstInfoIcon,
+                    contentDescription = "Information",
+                    modifier = Modifier
+                        .padding(top = 20.dp, start = 10.dp, end = 50.dp)
+                        .size(15.dp),
+                    alignment = Alignment.Center
                 )
 
                 OutlinedTextField(
                     "", label = { Text("Nedre omkreds", fontSize = 8.sp) }, onValueChange = {},
                     placeholder = { Text("XX", color = Gray) },
                     modifier = Modifier
-                        .size(150.dp, 50.dp)
-                        .padding(start = 24.dp),
+                        .size(100.dp, 50.dp),
                     colors = OutlinedTextFieldDefaults.colors(
                         unfocusedBorderColor = Salmon,
                         unfocusedTextColor = Salmon)
+                )
+
+                val SecondInfoIcon = painterResource(R.drawable.info_icon)
+                Image(
+                    painter = SecondInfoIcon,
+                    contentDescription = "Information",
+                    modifier = Modifier
+                        .padding(top = 20.dp, start = 10.dp)
+                        .size(15.dp),
+                    alignment = Alignment.Center
                 )
             }
 
@@ -113,25 +138,43 @@ fun App() {
                     .padding(24.dp)
             ) {
                 OutlinedTextField(
-                    "", label = { Text("Bryst bredde", fontSize = 8.sp) }, onValueChange = {},
+                    "", label = { Text("Øvre omkreds", fontSize = 8.sp) }, onValueChange = {},
                     placeholder = { Text("XX", color = Gray) },
                     modifier = Modifier
-                        .size(150.dp, 50.dp)
-                        .padding(end = 24.dp),
+                        .size(100.dp, 50.dp),
                     colors = OutlinedTextFieldDefaults.colors(
                         unfocusedBorderColor = Salmon,
                         unfocusedTextColor = Salmon)
                 )
 
+                val ThirdInfoIcon = painterResource(R.drawable.info_icon)
+                Image(
+                    painter = ThirdInfoIcon,
+                    contentDescription = "Information",
+                    modifier = Modifier
+                        .padding(top = 20.dp, start = 10.dp, end = 50.dp)
+                        .size(15.dp),
+                    alignment = Alignment.Center
+                )
+
                 OutlinedTextField(
-                    "", label = { Text("Bryst Højde", fontSize = 8.sp) }, onValueChange = {},
+                    "", label = { Text("Nedre omkreds", fontSize = 8.sp) }, onValueChange = {},
                     placeholder = { Text("XX", color = Gray) },
                     modifier = Modifier
-                        .size(150.dp, 50.dp)
-                        .padding(start = 24.dp),
+                        .size(100.dp, 50.dp),
                     colors = OutlinedTextFieldDefaults.colors(
                         unfocusedBorderColor = Salmon,
                         unfocusedTextColor = Salmon)
+                )
+
+                val ForthInfoIcon = painterResource(R.drawable.info_icon)
+                Image(
+                    painter = ForthInfoIcon,
+                    contentDescription = "Information",
+                    modifier = Modifier
+                        .padding(top = 20.dp, start = 10.dp)
+                        .size(15.dp),
+                    alignment = Alignment.Center
                 )
             }
 
@@ -152,5 +195,73 @@ fun App() {
             ) {
                 Text("Bestil")
             }
+            Column(modifier = Modifier.fillMaxHeight(),
+                verticalArrangement = Arrangement.Bottom
+            ){HomepageNavbar()}
+
         }
+
+}
+
+//Maja
+@Composable
+fun HomepageNavbar() {
+    val miniPadding = Modifier.padding(1.dp)
+    val NavbuttonColors = ButtonDefaults.buttonColors(containerColor = White)
+    Box(
+        modifier = Modifier
+            .background(White)
+            .fillMaxWidth(),
+        contentAlignment = Alignment.Center
+    ) {
+        Row(
+            modifier = Modifier,
+            horizontalArrangement = Arrangement.SpaceEvenly,
+        ) {
+            Button(
+                onClick = {},
+                colors = NavbuttonColors,
+                shape = RoundedCornerShape(0.dp),
+                modifier = miniPadding
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.home_button),
+                    contentDescription = "Highlighted home button dkk"
+                )
+            }
+            Button(
+                onClick = {},
+                colors = NavbuttonColors,
+                shape = RoundedCornerShape(0.dp),
+                modifier = miniPadding
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.maal_button),
+                    contentDescription = "Measurement button dkk"
+                )
+            }
+            Button(
+                onClick = {},
+                colors = NavbuttonColors,
+                shape = RoundedCornerShape(0.dp),
+                modifier = miniPadding
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.kurv_button),
+                    contentDescription = "basket button dkk"
+                )
+            }
+            Button(
+                onClick = {},
+                colors = NavbuttonColors,
+                shape = RoundedCornerShape(0.dp),
+                modifier = miniPadding
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.profile_button),
+                    contentDescription = "Profile button dkk"
+                )
+            }
+        }
+    }
 }
