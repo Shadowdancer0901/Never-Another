@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             //HomepageUi()
-            boxTesting()
+            HomepageNavbar()
             /*NeverAnotherTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(

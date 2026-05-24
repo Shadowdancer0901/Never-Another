@@ -2,12 +2,19 @@ package com.example.neveranother
 
 import android.content.ClipData
 import android.os.Bundle
+import android.view.PixelCopy
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.collection.intIntMapOf
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -25,24 +32,39 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.neveranother.ui.theme.Black
 import com.example.neveranother.ui.theme.NeverAnotherTheme
+import com.example.neveranother.ui.theme.White
 import com.example.neveranother.ui.theme.tempColor1
 import com.example.neveranother.ui.theme.tempColor2
+import org.intellij.lang.annotations.JdkConstants
 
 //Maja
 @Composable
 fun HomepageUi(){
+    val PictureBoxModifier = Modifier
+        .fillMaxWidth()
+        .padding(horizontal = 10.dp, vertical = 10.dp)
+
+    val TextBoxModifier = Modifier
+        .fillMaxWidth()
+        .padding(horizontal = 20.dp, vertical = 10.dp)
+        .background(color = tempColor1)
+
     LazyColumn(
-        horizontalAlignment = Alignment.CenterHorizontally,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        stickyHeader { InvisibleHeader() }
+
+        //Logo
         item {
             Image(
                 painter = painterResource(id= R.drawable.never_another_logo),
-                "Never another logo",
-                modifier = Modifier
+                "Never another logo"
             )
         }
 
+        //De 2 første knapper på homepage
         item {
             Button(onClick = {},
                 colors = ButtonDefaults.buttonColors(
@@ -53,8 +75,7 @@ fun HomepageUi(){
             ){
                 Image(
                     painter = painterResource(id=R.drawable.kobs_billede_homepage),
-                    contentDescription = "Billede af kvinde i en hvid bh, med en 'køb' knap",
-                    modifier = Modifier
+                    contentDescription = "Billede af kvinde i en hvid bh, med en 'køb' knap"
                 )
             }
         }
@@ -70,28 +91,50 @@ fun HomepageUi(){
                 Image(
                     painter = painterResource(id=R.drawable.book_fitting_homepage),
                     contentDescription = "Billede af kvinde i en hvid bh, med en 'book fitting' knap",
-                    modifier = Modifier
                 )
             }
         }
+
+
+
+        //Skiftende billeder og textbokse
         item{
-            Text("Our Mission")
+            Box(
+                modifier = TextBoxModifier
+            ) {
+                Text("Our Mission")
+            }
         }
+
         item{
-            Text("Den NEVER ANOTHER bøjlefri bh er skræddersyet til at passe perfekt til dig. \n" +
-                    "\n" +
-                    "Ved hjælp af dine mål tilpasser vores algoritme automatisk bh'en til din krop.\n" +
-                    "En innovativ 3D-strikteknologi sikrer et problemfrit produkt og en fuldstændig personlig oplevelse hver gang. ")
+            Box(
+                modifier = TextBoxModifier
+            ) {
+                Text(
+                    "Den NEVER ANOTHER bøjlefri bh er skræddersyet til at passe perfekt til dig. \n" +
+                            "\n" +
+                            "Ved hjælp af dine mål tilpasser vores algoritme automatisk bh'en til din krop.\n" +
+                            "En innovativ 3D-strikteknologi sikrer et problemfrit produkt og en fuldstændig personlig oplevelse hver gang. "
+                )
+            }
         }
+
         item{
-            Image(
-                painter = painterResource(id=R.drawable.homepage_b1),
-                contentDescription = "Kvinde i sort BH, taget fra siden",
-                modifier = Modifier
-            )
+            Box(
+                modifier = PictureBoxModifier
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.homepage_b1),
+                    contentDescription = "Kvinde i sort BH, taget fra siden",
+                )
+            }
         }
+
         item {
-            Text("Vores teknologi fungerer som en digital skrædder, der intelligent tilpasser bh'er uden bøjler, så de passer til hver enkelt person. \n" +
+            Box(
+                modifier = TextBoxModifier
+            ){
+                Text("Vores teknologi fungerer som en digital skrædder, der intelligent tilpasser bh'er uden bøjler, så de passer til hver enkelt person. \n" +
                     "Vores videovejledninger guider dig gennem selvmålingsprocessen.\n" +
                     "\n" +
                     "Vores proprietære størrelsesalgoritme bruger disse mål til at ændre designets dimensioner,\n" +
@@ -99,71 +142,197 @@ fun HomepageUi(){
                     "hvilket skaber vores sømløse, 3D-strikkede produkter. \n" +
                     "\n" +
                     "Denne teknologi giver os mulighed for at skabe en personlig pasform, samtidig med at vi reducerer spild og overproduktion.")
+            }
         }
+
         item {
-            Image(
-            painter = painterResource(id=R.drawable.homepage_b2),
-                contentDescription = "Billede af en kvinde i sort BH der ligger ned, taget i fugleperspektiv",
-                modifier = Modifier
-            )
+            Box(
+                modifier = PictureBoxModifier
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.homepage_b2),
+                    contentDescription = "Billede af en kvinde i sort BH der ligger ned, taget i fugleperspektiv",
+                )
+            }
         }
+
         item {
-            Text("På grund af kapitalismens og fast fashions virkninger er størrelsesvalg blevet reduceret til et par standardiserede bokse.\n" +
-                    "\n" +
-                    "Selvom branchen gør fremskridt med at fremvise diversitet, har kun 12 % af befolkningen den\n" +
-                    "kropstype, som standardstørrelsessystemer designer til.\n" +
-                    "\n" +
-                    "De fleste standard-bh'er masseproduceres tankeløst til et snævert udvalg af kropstyper.\n" +
-                    "Størrelser i butikkerne er baseret på kun to mål, og som et resultat ender mange kvinder med at nøjes med\n" +
-                    "bh'er i den forkerte størrelse og pasform, hvilket ærligt talt føles forfærdeligt at have på. \n" +
-                    "\n" +
-                    "Det efterlader mange af os med at føle os som\n" +
-                    "den, der er på udkig, fordi der tilsyneladende ikke er lavet noget til os.\n" +
-                    "\n" +
-                    "Derfor bringer NEVER ANOTHER skræddersyede produkter tilbage ved hjælp af innovative teknologier, der er tilgængelige i dag. Dette sikrer, at du bliver imødekommet, og at du kan få produkter, som du vil elske og bruge konsekvent.")
+            Box(
+                modifier = TextBoxModifier
+            ) {
+                Text(
+                    "På grund af kapitalismens og fast fashions virkninger er størrelsesvalg blevet reduceret til et par standardiserede bokse.\n" +
+                            "\n" +
+                            "Selvom branchen gør fremskridt med at fremvise diversitet, har kun 12 % af befolkningen den\n" +
+                            "kropstype, som standardstørrelsessystemer designer til.\n" +
+                            "\n" +
+                            "De fleste standard-bh'er masseproduceres tankeløst til et snævert udvalg af kropstyper.\n" +
+                            "Størrelser i butikkerne er baseret på kun to mål, og som et resultat ender mange kvinder med at nøjes med\n" +
+                            "bh'er i den forkerte størrelse og pasform, hvilket ærligt talt føles forfærdeligt at have på. \n" +
+                            "\n" +
+                            "Det efterlader mange af os med at føle os som\n" +
+                            "den, der er på udkig, fordi der tilsyneladende ikke er lavet noget til os.\n" +
+                            "\n" +
+                            "Derfor bringer NEVER ANOTHER skræddersyede produkter tilbage ved hjælp af innovative teknologier, der er tilgængelige i dag. Dette sikrer, at du bliver imødekommet, og at du kan få produkter, som du vil elske og bruge konsekvent."
+                )
+            }
         }
+
         item{
-            Image(
-                painter = painterResource(id=R.drawable.homepage_b3),
-                contentDescription = "Billede af en kvinde i sort Bh, med en baggrund der ligner ananas skiver",
-                modifier = Modifier
-            )
+            Box(
+                modifier = PictureBoxModifier
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.homepage_b3),
+                    contentDescription = "Billede af en kvinde i sort Bh, med en baggrund der ligner ananas skiver"
+                )
+            }
         }
-        item{
-            Text("Vores mission er at skabe digitalt skræddersyede bh'er, der passer til hver persons unikke krop. \n" +
-                    "\n" +
-                    "Vi er forpligtet til at sikre, at alle kan finde en bh, der passer perfekt og er behagelig. Mangfoldighed er kernen i vores produkter og processer - Vi tror på, at for virkelig at kunne arbejde med mangfoldighed, skal vi være i stand til at imødekomme den enkelte. \n" +
-                    "\n" +
-                    "Dette er en stor mission - Som en ny virksomhed er vi startet med ét design, men er forpligtet til hurtigt at udvide vores designudvalg.")
-        }
-        item{
-            Image(
-                painter = painterResource(id=R.drawable.homepage_b4),
-                contentDescription = "Billede af en kvinde i en Hvid BH, der kravler på gulvet",
-                modifier = Modifier
-            )
-        }
+
         item {
-            Text("I takt med at vi skaber produkter, der forstår forskellige kropsformer og -størrelser, er det meningen, at vores fællesskab skal gøre det samme.\n" +
-                    "\n" +
-                    "Vi er forpligtet til at opbygge et rum, der omfavner sårbarhed, med diversitet og autenticitet i centrum. Vi har allerede afholdt forskellige workshops med fokus på co-creation og afdækning af de problemer, kvinder står over for, når de skal finde og bære bh'er, selv når de har bryster.\n" +
-                    "\n" +
-                    "Dernæst er vores mål at skabe inkluderende events og meningsfuldt indhold, der fremmer forbindelse og empowerment.")
+            Box(
+                modifier = TextBoxModifier
+            ){
+            Text(
+                "Vores mission er at skabe digitalt skræddersyede bh'er, der passer til hver persons unikke krop. \n" +
+                        "\n" +
+                        "Vi er forpligtet til at sikre, at alle kan finde en bh, der passer perfekt og er behagelig. Mangfoldighed er kernen i vores produkter og processer - Vi tror på, at for virkelig at kunne arbejde med mangfoldighed, skal vi være i stand til at imødekomme den enkelte. \n" +
+                        "\n" +
+                        "Dette er en stor mission - Som en ny virksomhed er vi startet med ét design, men er forpligtet til hurtigt at udvide vores designudvalg."
+                )
+            }
         }
-        item{
-            Image(
-                painter = painterResource(id=R.drawable.homepage_b5),
-                contentDescription = "Gruppe billede af flere af 3 forskellige modeller, alle iført N.A BH",
-                modifier = Modifier
-            )
+
+        item {
+            Box(
+                modifier = PictureBoxModifier,
+            ){
+                Image(
+                    painter = painterResource(id = R.drawable.homepage_b4),
+                    contentDescription = "Billede af en kvinde i en Hvid BH, der kravler på gulvet"
+                )
+            }
         }
+
+        item {
+            Box(
+                modifier = TextBoxModifier
+            ) {
+                Text(
+                    "I takt med at vi skaber produkter, der forstår forskellige kropsformer og -størrelser, er det meningen, at vores fællesskab skal gøre det samme.\n" +
+                            "\n" +
+                            "Vi er forpligtet til at opbygge et rum, der omfavner sårbarhed, med diversitet og autenticitet i centrum. Vi har allerede afholdt forskellige workshops med fokus på co-creation og afdækning af de problemer, kvinder står over for, når de skal finde og bære bh'er, selv når de har bryster.\n" +
+                            "\n" +
+                            "Dernæst er vores mål at skabe inkluderende events og meningsfuldt indhold, der fremmer forbindelse og empowerment."
+                )
+
+            }
+        }
+
+        item {
+            Box(
+                modifier = PictureBoxModifier
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.homepage_b5),
+                    contentDescription = "Gruppe billede af flere af 3 forskellige modeller, alle iført N.A BH"
+                )
+            }
+        }
+
         item{
-            Text("NEVER ANOTHER BH'en blev designet i Danmark med hjælp fra utallige workshopdeltagere, respondenter i undersøgelser og testpiloter.\n" +
-                    "Vores forsknings- og udviklingsfase har varet 2 år og produceret mere end 50 prototyper, hvilket har ført os til det rette design, tekstilsammensætning og funktionalitet.\n" +
-                    "\n" +
-                    "Bh'en er strikket i ét stykke og fremstilles af vores dygtige produktionspartner i Holland, som har været en del af vores rejse og forsknings- og udviklingsproces fra starten.\n" +
-                    "\n" +
-                    "Vores valg af produktionspartner afspejler vores engagement i produkter af høj kvalitet, ordentligt arbejde og ansvarlig produktion.")
+            Box(
+                modifier = TextBoxModifier
+            ) {
+                Text(
+                    "NEVER ANOTHER BH'en blev designet i Danmark med hjælp fra utallige workshopdeltagere, respondenter i undersøgelser og testpiloter.\n" +
+                            "Vores forsknings- og udviklingsfase har varet 2 år og produceret mere end 50 prototyper, hvilket har ført os til det rette design, tekstilsammensætning og funktionalitet.\n" +
+                            "\n" +
+                            "Bh'en er strikket i ét stykke og fremstilles af vores dygtige produktionspartner i Holland, som har været en del af vores rejse og forsknings- og udviklingsproces fra starten.\n" +
+                            "\n" +
+                            "Vores valg af produktionspartner afspejler vores engagement i produkter af høj kvalitet, ordentligt arbejde og ansvarlig produktion."
+                )
+            }
+        }
+    }
+}
+
+//Invisible header to make sure the content "glides" behind the camera as to not disturb the user expirience.
+//For the header I used this https://www.youtube.com/watch?v=XfYlRn_Jy1g&t=220s for help.
+
+@Composable
+fun InvisibleHeader(
+   modifier: Modifier = Modifier
+       .padding(top = 5.dp, bottom = 10.dp)
+       .fillMaxWidth()
+){
+    Box(
+        modifier = Modifier
+            .height(50.dp)
+            .fillMaxWidth()
+            .background(color = tempColor2)
+    ){
+    }
+}
+
+@Composable
+fun HomepageNavbar(){
+    val miniPadding = Modifier.padding(1.dp)
+    val NavbuttonColors = ButtonDefaults.buttonColors(containerColor = White)
+    Box(
+        modifier = Modifier
+            .background(White)
+            .fillMaxWidth()
+    ) {
+        Row (
+            modifier = Modifier,
+            horizontalArrangement = Arrangement.SpaceEvenly
+        ){
+            Button(
+                onClick = {},
+                colors = NavbuttonColors,
+                shape = RoundedCornerShape(0.dp),
+                modifier = miniPadding
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.home_highligted_button),
+                    contentDescription = "Highlighted home button dkk"
+                )
+            }
+            Button(
+                onClick = {},
+                colors = NavbuttonColors,
+                shape = RoundedCornerShape(0.dp),
+                modifier = miniPadding
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.maal_button),
+                    contentDescription = "Measurement button dkk"
+                )
+            }
+            Button(
+                onClick = {},
+                colors = NavbuttonColors,
+                shape = RoundedCornerShape(0.dp),
+                modifier = miniPadding
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.kurv_button),
+                    contentDescription = "basket button dkk"
+                )
+            }
+            Button(
+                onClick = {},
+                colors = NavbuttonColors,
+                shape = RoundedCornerShape(0.dp),
+                modifier = miniPadding
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.profile_button),
+                    contentDescription = "Profile button dkk"
+                )
+            }
+
         }
     }
 }
