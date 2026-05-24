@@ -18,8 +18,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            HomepageUi()
-            //Tester()
+            //HomepageUi()
+            boxTesting()
             /*NeverAnotherTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
@@ -48,7 +48,3 @@ fun GreetingPreview() {
     }
 }
 
-@Composable
-fun Tester(){
-    Text("hi there")
-}
