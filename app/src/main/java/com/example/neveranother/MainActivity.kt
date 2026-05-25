@@ -75,8 +75,7 @@ fun ProductPageScreen(){
                 contentDescription = "neverAnother logo",
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 10.dp, vertical = 6.dp)
-                    .background(Color.Green),
+                    .padding(horizontal = 10.dp, vertical = 6.dp),
                 contentScale = ContentScale.FillWidth
             )
         }
@@ -106,8 +105,7 @@ fun ProductPageScreen(){
                 style = MaterialTheme.typography.titleLarge,
                 color = Color(0xFFEE9981),
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .background(Color.Red),
+                    .fillMaxWidth(),
                 textAlign = TextAlign.Center
             )
         }
@@ -123,8 +121,7 @@ fun ProductPageScreen(){
                 color = Color(0xFF000000),
                 textAlign = TextAlign.Center,
                 modifier = Modifier
-                    .padding(horizontal = 62.dp)
-                    .background(Color.Blue))
+                    .padding(horizontal = 62.dp))
         }
         item{
             // space between title and paragraf
@@ -169,6 +166,42 @@ fun ProductPageScreen(){
                         "Vi bestræber os på at levere din bh inden for 6 uger. NEVER ANOTHER er en startup, og da vi arbejder med produktionsvinduer og skræddersyede produkter, er leveringstiderne længere end, hvad fast fashion-branchen normalt kan tilbyde. Vi gør vores bedste for at minimere ventetiden, og vi takker dig for din tålmodighed."
             )
             ExpandableSection(itemsListForsendelse)
+        }
+        item{
+            Spacer(Modifier.height(15.dp))
+        }
+        item {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                contentAlignment = Alignment.Center
+            ) {
+
+
+                Button(
+                    onClick = { /* TODO  mangler at tilføje logik ved checkout*/ },
+                    modifier = Modifier
+                        .height(44.dp)
+                        .padding(horizontal = 40.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        contentColor = Color(0xFFEE9981),
+                        containerColor = Color.Transparent
+                    ),
+                    border = BorderStroke(1.5.dp, Color(0xFFEE9981)),
+                    shape = RoundedCornerShape(50.dp)
+                ) {
+                    Text(
+                        text = "Check out",
+                        fontSize = 24.sp,
+                        style = MaterialTheme.typography.titleLarge,
+                        textAlign = TextAlign.Center
+                    )
+
+                }
+            }
+        }
+        item {
+            Spacer(Modifier.height(30.dp))
         }
 
 
