@@ -17,13 +17,18 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -39,13 +44,27 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.neveranother.ui.theme.White
 
 @Composable
 fun ProductPageScreen(){
+    //Carousel values
+    val itemCount = ProductpagePictures.size
+    val loops = 1000
+    val virtualCount = itemCount * loops
+    val initialPage = (virtualCount / 2 - ((virtualCount / 2) % itemCount))
+    val pagerState = rememberPagerState(initialPage = initialPage, pageCount = { virtualCount })
+    Scaffold(
+        bottomBar = {
+            BottomAppBar(containerColor = White)
+            { (BuyNavbar()) }
+        }
+    ) { innerPadding ->
     LazyColumn(
         modifier = Modifier
+            .padding(innerPadding)
             .fillMaxSize()
-            .windowInsetsPadding(WindowInsets.statusBars) // i have added this to make my app not overlap with top bar on phones
+            //.windowInsetsPadding(WindowInsets.statusBars) // i have added this to make my app not overlap with top bar on phones
 
     ) {
         item {
@@ -60,19 +79,50 @@ fun ProductPageScreen(){
                 contentScale = ContentScale.FillWidth
             )
         }
-        item{
-            // picture carousel
-            val headerPicture = painterResource(R.drawable.bk_7)
-            Image(
-                painter = headerPicture,
-                contentDescription = "girl laying on a bed in her NeverAnother white bra",
+//        item{
+//            // picture carousel
+//            val headerPicture = painterResource(R.drawable.bk_7)
+//            Image(
+//                painter = headerPicture,
+//                contentDescription = "girl laying on a bed in her NeverAnother white bra",
+//                modifier = Modifier
+//                    .fillMaxWidth()
+//                    .padding(16.dp)
+//                    .clip(RoundedCornerShape(10.dp))
+//                    .background(Color.Red),
+//                contentScale = ContentScale.FillWidth
+//            )
+//        }
+        //Out Picture carousel
+        item {
+            /*For the standard layout of the image carousel i used https://developer.android.com/develop/ui/compose/components/carousel
+        While i did manage to make a functional carousel, we wanted to make it so it looped around
+        for ease of comfort for the end user. I used Gemini, to help figure out how to loop it without
+        having to switch over to motion layout
+        */
+            HorizontalPager(
+                state = pagerState,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp)
-                    .clip(RoundedCornerShape(10.dp))
-                    .background(Color.Red),
-                contentScale = ContentScale.FillWidth
-            )
+                    .height(618.dp)
+                    .padding(vertical = 10.dp, horizontal = 10.dp)
+            ) { i ->
+                val actualIndex = i % itemCount
+                val BkList = ProductpagePictures[actualIndex]
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ){
+                    Image(
+                        painter = painterResource(id = BkList.imageRes),
+                        contentDescription = BkList.description,
+                        modifier = Modifier
+                            .width(BkList.pictureWidth)
+                            .height(BkList.pictureHeight)
+                    )
+                }
+            }
         }
         item{
             // space between picture and title
@@ -198,7 +248,7 @@ fun ProductPageScreen(){
 
 
     }
-}
+}}
 
 
 
