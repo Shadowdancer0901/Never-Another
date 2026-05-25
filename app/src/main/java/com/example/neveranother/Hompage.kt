@@ -29,6 +29,7 @@ import com.example.neveranother.ui.theme.tempColor2
 //Maja
 @Composable
 fun Homepage() {
+
     //Carousel values
     val itemCount = HomepagePictures.size
     val loops = 1000
@@ -36,10 +37,10 @@ fun Homepage() {
     val initialPage = (virtualCount / 2 - ((virtualCount / 2) % itemCount))
     val pagerState = rememberPagerState(initialPage = initialPage, pageCount = { virtualCount })
 
+    //standardized box values for text and pictures
     val TextBoxMod = Modifier
         .fillMaxSize()
         .padding(vertical = 10.dp, horizontal = 25.dp)
-        .background(tempColor2)
     val pictureBoxMod = Modifier.fillMaxSize()
 
     Scaffold(
@@ -63,7 +64,7 @@ fun Homepage() {
                 ){
                     Image(
                         painter = painterResource(id=R.drawable.never_another_logo),
-                        contentDescription = "",
+                        contentDescription = "Never Another Logo",
                         modifier = Modifier
                             .height(80.dp)
                             .width(400.dp)
@@ -71,7 +72,7 @@ fun Homepage() {
                 }
             }
 
-            //2 first buttons
+            //The 2 first buttons on the homepage
             item {
                 Box(modifier = Modifier
                     .fillMaxSize(),
@@ -79,7 +80,7 @@ fun Homepage() {
                         Button(
                             onClick = {},
                             colors = ButtonDefaults.buttonColors(
-                                containerColor = tempColor1,
+                                containerColor = White,
                             ),
                             shape = RoundedCornerShape(0.dp),
                             modifier = Modifier
@@ -103,7 +104,7 @@ fun Homepage() {
                     Button(
                         onClick = {},
                         colors = ButtonDefaults.buttonColors(
-                            containerColor = tempColor2,
+                            containerColor = White,
                         ),
                         shape = RoundedCornerShape(0.dp),
                         modifier = Modifier
@@ -124,7 +125,7 @@ fun Homepage() {
                 Box(modifier = Modifier
                     .fillMaxSize()
                     .padding(vertical = 10.dp, horizontal = 25.dp)
-                    .background(tempColor1),
+                    .background(White),
                     contentAlignment = Alignment.Center){
                         Text("Our mission")
                 }
@@ -267,7 +268,7 @@ fun Homepage() {
                }
            }
 
-            //Out Picture carousel
+            //Our Picture carousel
             item {
                 /*For the standard layout of the image carousel i used https://developer.android.com/develop/ui/compose/components/carousel
             While i did manage to make a functional carousel, we wanted to make it so it looped around
@@ -298,7 +299,6 @@ fun Homepage() {
                     }
                 }
             }
-
         }
     }
 }

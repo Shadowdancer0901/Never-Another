@@ -53,6 +53,8 @@ import com.example.neveranother.ui.theme.White
 
 @Composable
 fun MeasurementPage() {
+
+    //Carousel values
     val itemCount = MeasurementpagePictures.size
     val loops = 1000
     val virtualCount = itemCount * loops
@@ -76,15 +78,20 @@ fun MeasurementPage() {
             val neverAnotherLogo = painterResource(R.drawable.never_another_logo)
             Image(
                 painter = neverAnotherLogo,
-                contentDescription = "Never Another Logo"
+                contentDescription = "Never Another Logo",
+                modifier = Modifier
+                    .height(80.dp)
+                    .width(400.dp)
             )
 
+            //Maja's carousel template
             HorizontalPager(
                 state = pagerState,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(300.dp)
-                    .padding(vertical = 10.dp, horizontal = 10.dp)
+                    .height(350.dp)
+                    .width(364.dp)
+                    .padding(top = 5.dp, bottom = 5.dp)
             ) { i ->
                 val actualIndex = i % itemCount
                 val MkList = MeasurementpagePictures[actualIndex]
@@ -103,14 +110,16 @@ fun MeasurementPage() {
                 }
             }
 
-            Text("Mål", modifier = Modifier.padding(6.dp))
+            Text("Mål",
+                fontSize = 32.sp,
+                modifier = Modifier.padding(top = 6.dp))
 
             Row(
                 modifier = Modifier
-                    .padding(24.dp)
+                    .padding(14.dp)
             ) {
 
-                //Brugt dette link til at style OutlinedTextField:
+                //Used this link to style our OutlinedTextField:
                 // https://stackoverflow.com/questions/66453775/how-to-change-the-outline-color-of-outlinedtextfield-from-jetpack-compose
                 OutlinedTextField(
                     state = rememberTextFieldState(),

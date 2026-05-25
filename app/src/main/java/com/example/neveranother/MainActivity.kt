@@ -54,8 +54,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            //Homepage()
-            ProductPageScreen()
+            Homepage()
+           // ProductPageScreen()
             //MeasurementPage()
             /*NeverAnotherTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->

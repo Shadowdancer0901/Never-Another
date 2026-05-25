@@ -10,15 +10,12 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
@@ -54,6 +51,7 @@ fun ProductPageScreen(){
     val virtualCount = itemCount * loops
     val initialPage = (virtualCount / 2 - ((virtualCount / 2) % itemCount))
     val pagerState = rememberPagerState(initialPage = initialPage, pageCount = { virtualCount })
+
     Scaffold(
         bottomBar = {
             BottomAppBar(containerColor = White)
@@ -69,65 +67,50 @@ fun ProductPageScreen(){
     ) {
         item {
             //Logo
-            val neverAnotherLogo = painterResource(R.drawable.never_another_logo)
-            Image(
-                painter = neverAnotherLogo,
-                contentDescription = "neverAnother logo",
+            Box(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 10.dp, vertical = 6.dp),
-                contentScale = ContentScale.FillWidth
-            )
+                    .fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ){
+                Image(
+                    painter = painterResource(id=R.drawable.never_another_logo),
+                    contentDescription = "Never another logo",
+                    modifier = Modifier
+                        .height(80.dp)
+                        .width(400.dp)
+                )
+            }
         }
-//        item{
-//            // picture carousel
-//            val headerPicture = painterResource(R.drawable.bk_7)
-//            Image(
-//                painter = headerPicture,
-//                contentDescription = "girl laying on a bed in her NeverAnother white bra",
-//                modifier = Modifier
-//                    .fillMaxWidth()
-//                    .padding(16.dp)
-//                    .clip(RoundedCornerShape(10.dp))
-//                    .background(Color.Red),
-//                contentScale = ContentScale.FillWidth
-//            )
-//        }
-        //Out Picture carousel
+
+        //Our Picture carousel
         item {
-            /*For the standard layout of the image carousel i used https://developer.android.com/develop/ui/compose/components/carousel
-        While i did manage to make a functional carousel, we wanted to make it so it looped around
-        for ease of comfort for the end user. I used Gemini, to help figure out how to loop it without
-        having to switch over to motion layout
-        */
+            //Maja's carousel template
             HorizontalPager(
                 state = pagerState,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(618.dp)
-                    .padding(vertical = 10.dp, horizontal = 10.dp)
+                    .padding(vertical = 10.dp)
             ) { i ->
                 val actualIndex = i % itemCount
-                val BkList = ProductpagePictures[actualIndex]
+                val PkList = ProductpagePictures[actualIndex]
+
                 Box(
                     modifier = Modifier
                         .fillMaxSize(),
                     contentAlignment = Alignment.Center
                 ){
                     Image(
-                        painter = painterResource(id = BkList.imageRes),
-                        contentDescription = BkList.description,
+                        painter = painterResource(id = PkList.imageRes),
+                        contentDescription = PkList.description,
                         modifier = Modifier
-                            .width(BkList.pictureWidth)
-                            .height(BkList.pictureHeight)
+                            .width(PkList.pictureWidth)
+                            .height(PkList.pictureHeight)
                     )
                 }
             }
         }
-        item{
-            // space between picture and title
-            Spacer(Modifier.height(15.dp))
-        }
+
         item{
             // title
             Text (
@@ -140,10 +123,12 @@ fun ProductPageScreen(){
                 textAlign = TextAlign.Center
             )
         }
+
         item{
             // space between title and paragraf
             Spacer(Modifier.height(15.dp))
         }
+
         item{
             // description
             Text(
@@ -154,10 +139,12 @@ fun ProductPageScreen(){
                 modifier = Modifier
                     .padding(horizontal = 62.dp))
         }
+
         item{
-            // space between title and paragraf
+            // space between title and paragraph
             Spacer(Modifier.height(15.dp))
         }
+
         item {
             val itemsListMaterialerVask = listOf(
                 "Materialer" to "Hvid bh:\n" +
@@ -180,16 +167,20 @@ fun ProductPageScreen(){
             )
             ExpandableSection(itemsListMaterialerVask)
         }
+
         item{
             Spacer(Modifier.height(15.dp))
         }
+
         item {
             ColorSelection()
         }
+
         item {
             "tilføj til kurv del"
             AddToCartSection()
         }
+
         item{
             val itemsListForsendelse = listOf(
                 "Garanti & forsendelse" to "Vi ønsker, at du skal elske din bh. Er pasformen ikke perfekt? Vi tilbyder en gratis størrelsesgaranti!\n" +
@@ -198,16 +189,17 @@ fun ProductPageScreen(){
             )
             ExpandableSection(itemsListForsendelse)
         }
+
         item{
             Spacer(Modifier.height(15.dp))
         }
+
         item {
             Box(
                 modifier = Modifier
                     .fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ) {
-
 
                 Button(
                     onClick = { /* TODO  mangler at tilføje logik ved checkout*/ },
@@ -227,28 +219,16 @@ fun ProductPageScreen(){
                         style = MaterialTheme.typography.titleLarge,
                         textAlign = TextAlign.Center
                     )
-
                 }
             }
         }
+
         item {
-            Spacer(Modifier.height(30.dp))
+                Spacer(Modifier.height(30.dp))
+            }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
-}}
+}
 
 
 

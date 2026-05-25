@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.example.neveranother.ui.theme.White
 import com.example.neveranother.ui.theme.tempColor1
 import com.example.neveranother.ui.theme.tempColor2
 
@@ -29,7 +30,7 @@ fun HomepageNavbar(){
 
     Box(
         modifier = Modifier
-            .background(tempColor1),
+            .background(White),
         contentAlignment = Alignment.Center
     ){
         Row( modifier = Modifier
@@ -39,7 +40,7 @@ fun HomepageNavbar(){
             Button(
                 onClick = {},
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = tempColor1,
+                    containerColor = White,
                 ),
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
@@ -52,7 +53,7 @@ fun HomepageNavbar(){
             Button(
                 onClick = {},
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = tempColor2,
+                    containerColor = White,
                 ),
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
@@ -66,7 +67,7 @@ fun HomepageNavbar(){
             Button(
                 onClick = {},
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = tempColor1,
+                    containerColor = White,
                 ),
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
@@ -80,7 +81,7 @@ fun HomepageNavbar(){
             Button(
                 onClick = {},
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = tempColor2,
+                    containerColor = White,
                 ),
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
@@ -102,7 +103,7 @@ fun BuyNavbar(){
 
     Box(
         modifier = Modifier
-            .background(tempColor1),
+            .background(White),
         contentAlignment = Alignment.Center
     ){
         Row( modifier = Modifier
@@ -112,7 +113,7 @@ fun BuyNavbar(){
             Button(
                 onClick = {},
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = tempColor1,
+                    containerColor = White,
                 ),
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
@@ -125,7 +126,7 @@ fun BuyNavbar(){
             Button(
                 onClick = {},
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = tempColor2,
+                    containerColor = White,
                 ),
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
@@ -139,7 +140,7 @@ fun BuyNavbar(){
             Button(
                 onClick = {},
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = tempColor1,
+                    containerColor = White,
                 ),
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
@@ -153,7 +154,7 @@ fun BuyNavbar(){
             Button(
                 onClick = {},
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = tempColor2,
+                    containerColor = White,
                 ),
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
@@ -175,7 +176,7 @@ fun MeasurementNavbar(){
 
     Box(
         modifier = Modifier
-            .background(tempColor1),
+            .background(White),
         contentAlignment = Alignment.Center
     ){
         Row( modifier = Modifier
@@ -185,7 +186,7 @@ fun MeasurementNavbar(){
             Button(
                 onClick = {},
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = tempColor1,
+                    containerColor = White,
                 ),
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
@@ -198,7 +199,7 @@ fun MeasurementNavbar(){
             Button(
                 onClick = {},
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = tempColor2,
+                    containerColor = White,
                 ),
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
@@ -212,7 +213,7 @@ fun MeasurementNavbar(){
             Button(
                 onClick = {},
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = tempColor1,
+                    containerColor = White
                 ),
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
@@ -226,7 +227,7 @@ fun MeasurementNavbar(){
             Button(
                 onClick = {},
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = tempColor2,
+                    containerColor = White,
                 ),
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
@@ -248,7 +249,7 @@ fun ProfileNavbar(){
 
     Box(
         modifier = Modifier
-            .background(tempColor1),
+            .background(White),
         contentAlignment = Alignment.Center
     ){
         Row( modifier = Modifier
@@ -258,7 +259,7 @@ fun ProfileNavbar(){
             Button(
                 onClick = {},
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = tempColor1,
+                    containerColor = White,
                 ),
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
@@ -271,7 +272,7 @@ fun ProfileNavbar(){
             Button(
                 onClick = {},
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = tempColor2,
+                    containerColor = White,
                 ),
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
@@ -285,7 +286,7 @@ fun ProfileNavbar(){
             Button(
                 onClick = {},
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = tempColor1,
+                    containerColor = White,
                 ),
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
@@ -299,7 +300,7 @@ fun ProfileNavbar(){
             Button(
                 onClick = {},
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = tempColor2,
+                    containerColor = White,
                 ),
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
