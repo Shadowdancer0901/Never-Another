@@ -35,6 +35,7 @@ fun Homepage() {
     val virtualCount = itemCount * loops
     val initialPage = (virtualCount / 2 - ((virtualCount / 2) % itemCount))
     val pagerState = rememberPagerState(initialPage = initialPage, pageCount = { virtualCount })
+
     val TextBoxMod = Modifier
         .fillMaxSize()
         .padding(vertical = 10.dp, horizontal = 25.dp)
