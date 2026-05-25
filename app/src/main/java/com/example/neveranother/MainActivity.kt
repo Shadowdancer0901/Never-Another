@@ -18,8 +18,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            //HomepageUi()
-            HomepageNavbar()
+            HomepageUi()
             /*NeverAnotherTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
@@ -40,7 +39,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     )
 }
 
-@Preview(showBackground = true)
+
 @Composable
 fun GreetingPreview() {
     NeverAnotherTheme {

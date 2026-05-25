@@ -17,7 +17,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ModalNavigationDrawer
@@ -37,7 +40,7 @@ import com.example.neveranother.ui.theme.NeverAnotherTheme
 import com.example.neveranother.ui.theme.White
 import com.example.neveranother.ui.theme.tempColor1
 import com.example.neveranother.ui.theme.tempColor2
-import org.intellij.lang.annotations.JdkConstants
+
 
 //Maja
 @Composable
@@ -45,13 +48,27 @@ fun HomepageUi(){
     val PictureBoxModifier = Modifier
         .fillMaxWidth()
         .padding(horizontal = 10.dp, vertical = 10.dp)
-
     val TextBoxModifier = Modifier
         .fillMaxWidth()
         .padding(horizontal = 20.dp, vertical = 10.dp)
         .background(color = tempColor1)
 
+    val itemCount = HomepagePictures.size
+    val loops = 1000
+    val virtualCount = itemCount * loops
+    val initialPage = (virtualCount / 2 - ((virtualCount / 2) % itemCount))
+    val pagerState = rememberPagerState(initialPage = initialPage, pageCount = { virtualCount })
+
+    //note for Scaffold: I used this https://developer.android.com/develop/ui/compose/components/scaffold website to figure out how to set up scaffolding so that our navbar stayed at the bottom of the screen
+    Scaffold(
+        bottomBar = {
+            BottomAppBar(containerColor = White)
+            { HomepageNavbar()}
+        }
+    ){ innerPadding ->
     LazyColumn(
+        modifier = Modifier
+            .padding(innerPadding),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         stickyHeader { InvisibleHeader() }
@@ -59,54 +76,56 @@ fun HomepageUi(){
         //Logo
         item {
             Image(
-                painter = painterResource(id= R.drawable.never_another_logo),
+                painter = painterResource(id = R.drawable.never_another_logo),
                 "Never another logo"
             )
         }
 
         //De 2 første knapper på homepage
         item {
-            Button(onClick = {},
+            Button(
+                onClick = {},
                 colors = ButtonDefaults.buttonColors(
                     containerColor = tempColor1,
                 ),
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier
-            ){
+            ) {
                 Image(
-                    painter = painterResource(id=R.drawable.kobs_billede_homepage),
+                    painter = painterResource(id = R.drawable.kobs_billede_homepage),
                     contentDescription = "Billede af kvinde i en hvid bh, med en 'køb' knap"
                 )
             }
         }
 
         item {
-            Button(onClick = {},
+            Button(
+                onClick = {},
                 colors = ButtonDefaults.buttonColors(
                     containerColor = tempColor2
                 ),
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier
-            ){
+            ) {
                 Image(
-                    painter = painterResource(id=R.drawable.book_fitting_homepage),
+                    painter = painterResource(id = R.drawable.book_fitting_homepage),
                     contentDescription = "Billede af kvinde i en hvid bh, med en 'book fitting' knap",
                 )
             }
         }
 
 
-
         //Skiftende billeder og textbokse
-        item{
+        item {
             Box(
-                modifier = TextBoxModifier
+                modifier = TextBoxModifier,
+                contentAlignment = Alignment.Center
             ) {
                 Text("Our Mission")
             }
         }
 
-        item{
+        item {
             Box(
                 modifier = TextBoxModifier
             ) {
@@ -119,7 +138,7 @@ fun HomepageUi(){
             }
         }
 
-        item{
+        item {
             Box(
                 modifier = PictureBoxModifier
             ) {
@@ -133,15 +152,17 @@ fun HomepageUi(){
         item {
             Box(
                 modifier = TextBoxModifier
-            ){
-                Text("Vores teknologi fungerer som en digital skrædder, der intelligent tilpasser bh'er uden bøjler, så de passer til hver enkelt person. \n" +
-                    "Vores videovejledninger guider dig gennem selvmålingsprocessen.\n" +
-                    "\n" +
-                    "Vores proprietære størrelsesalgoritme bruger disse mål til at ændre designets dimensioner,\n" +
-                    "og sikrer, at du får den bedst mulige pasform. Bh'en produceres på en digital strikkemaskine,\n" +
-                    "hvilket skaber vores sømløse, 3D-strikkede produkter. \n" +
-                    "\n" +
-                    "Denne teknologi giver os mulighed for at skabe en personlig pasform, samtidig med at vi reducerer spild og overproduktion.")
+            ) {
+                Text(
+                    "Vores teknologi fungerer som en digital skrædder, der intelligent tilpasser bh'er uden bøjler, så de passer til hver enkelt person. \n" +
+                            "Vores videovejledninger guider dig gennem selvmålingsprocessen.\n" +
+                            "\n" +
+                            "Vores proprietære størrelsesalgoritme bruger disse mål til at ændre designets dimensioner,\n" +
+                            "og sikrer, at du får den bedst mulige pasform. Bh'en produceres på en digital strikkemaskine,\n" +
+                            "hvilket skaber vores sømløse, 3D-strikkede produkter. \n" +
+                            "\n" +
+                            "Denne teknologi giver os mulighed for at skabe en personlig pasform, samtidig med at vi reducerer spild og overproduktion."
+                )
             }
         }
 
@@ -178,7 +199,7 @@ fun HomepageUi(){
             }
         }
 
-        item{
+        item {
             Box(
                 modifier = PictureBoxModifier
             ) {
@@ -192,13 +213,13 @@ fun HomepageUi(){
         item {
             Box(
                 modifier = TextBoxModifier
-            ){
-            Text(
-                "Vores mission er at skabe digitalt skræddersyede bh'er, der passer til hver persons unikke krop. \n" +
-                        "\n" +
-                        "Vi er forpligtet til at sikre, at alle kan finde en bh, der passer perfekt og er behagelig. Mangfoldighed er kernen i vores produkter og processer - Vi tror på, at for virkelig at kunne arbejde med mangfoldighed, skal vi være i stand til at imødekomme den enkelte. \n" +
-                        "\n" +
-                        "Dette er en stor mission - Som en ny virksomhed er vi startet med ét design, men er forpligtet til hurtigt at udvide vores designudvalg."
+            ) {
+                Text(
+                    "Vores mission er at skabe digitalt skræddersyede bh'er, der passer til hver persons unikke krop. \n" +
+                            "\n" +
+                            "Vi er forpligtet til at sikre, at alle kan finde en bh, der passer perfekt og er behagelig. Mangfoldighed er kernen i vores produkter og processer - Vi tror på, at for virkelig at kunne arbejde med mangfoldighed, skal vi være i stand til at imødekomme den enkelte. \n" +
+                            "\n" +
+                            "Dette er en stor mission - Som en ny virksomhed er vi startet med ét design, men er forpligtet til hurtigt at udvide vores designudvalg."
                 )
             }
         }
@@ -206,7 +227,7 @@ fun HomepageUi(){
         item {
             Box(
                 modifier = PictureBoxModifier,
-            ){
+            ) {
                 Image(
                     painter = painterResource(id = R.drawable.homepage_b4),
                     contentDescription = "Billede af en kvinde i en Hvid BH, der kravler på gulvet"
@@ -240,7 +261,7 @@ fun HomepageUi(){
             }
         }
 
-        item{
+        item {
             Box(
                 modifier = TextBoxModifier
             ) {
@@ -254,6 +275,35 @@ fun HomepageUi(){
                 )
             }
         }
+
+            /*For the standard layout of the image carousel i used https://developer.android.com/develop/ui/compose/components/carousel
+            While i did manage to make a functional carousel, we wanted to make it so it looped around
+            for ease of comfort for the end user. We used Gemini, to help figure out how to loop it without
+            having to switch over to motion layout
+            */
+        item {
+            HorizontalPager(
+                state = pagerState,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(618.dp)
+                    .padding(vertical = 10.dp, horizontal = 10.dp)
+            ) { i ->
+                    val actualIndex = i % itemCount
+                    val BkList = HomepagePictures[actualIndex]
+                    Box(
+                        modifier = Modifier
+                            .fillMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ){
+                        Image(
+                            painter = painterResource(id = BkList.imageRes),
+                            contentDescription = BkList.description
+                        )
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -263,12 +313,12 @@ fun HomepageUi(){
 @Composable
 fun InvisibleHeader(
    modifier: Modifier = Modifier
-       .padding(top = 5.dp, bottom = 10.dp)
+       .padding(top = 0.dp, bottom = 5.dp)
        .fillMaxWidth()
 ){
     Box(
         modifier = Modifier
-            .height(50.dp)
+            .height(30.dp)
             .fillMaxWidth()
             .background(color = tempColor2)
     ){
@@ -277,17 +327,18 @@ fun InvisibleHeader(
 
 @Composable
 fun HomepageNavbar(){
-    val miniPadding = Modifier.padding(1.dp)
+    val miniPadding = Modifier.padding(vertical = 3.dp)
     val NavbuttonColors = ButtonDefaults.buttonColors(containerColor = White)
     Box(
         modifier = Modifier
             .background(White)
-            .fillMaxWidth()
+            .fillMaxWidth(),
+        contentAlignment = Alignment.Center
     ) {
         Row (
             modifier = Modifier,
             horizontalArrangement = Arrangement.SpaceEvenly
-        ){
+        ) {
             Button(
                 onClick = {},
                 colors = NavbuttonColors,
