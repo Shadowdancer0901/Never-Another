@@ -200,109 +200,59 @@ fun App() {
             )
         }
 
-        if (openDialog.intValue == 1) {
-            PopupFunction(
-                cContext,
-                "https://neveranother.dk/cdn/shop/videos/c/vp/0e5fa048aa2d4be98a4d6a43dbc8cf1e/0e5fa048aa2d4be98a4d6a43dbc8cf1e.HD-1080p-2.5Mbps-45153518.mp4?v=0"
-            )
-        } else if (openDialog.intValue == 2) {
-            PopupFunction(
-                cContext,
-                "https://neveranother.dk/cdn/shop/videos/c/vp/e1ae0f9b502042e79995107cf269ac08/e1ae0f9b502042e79995107cf269ac08.HD-1080p-2.5Mbps-45153519.mp4?v=0"
-            )
-        } else if (openDialog.intValue == 3) {
-            PopupFunction(
-                cContext,
-                "https://neveranother.dk/cdn/shop/videos/c/vp/9750bff2d3954cf49bc0829307df8a5c/9750bff2d3954cf49bc0829307df8a5c.HD-1080p-2.5Mbps-45153520.mp4?v=0"
-            )
-        } else if (openDialog.intValue == 4) {
-            PopupFunction(
-                cContext,
-                "https://neveranother.dk/cdn/shop/videos/c/vp/15e37945865649c6ad85f73d25baa26e/15e37945865649c6ad85f73d25baa26e.HD-1080p-2.5Mbps-45153521.mp4?v=0"
-            )
-        }
-
-        //Brugt dette link til at lave underline til Text element:
-        // https://developer.android.com/develop/ui/compose/text/style-text
-        Text("Usikker på størrelsen?", fontSize = 8.sp)
-        Text("Bestil free fitting", fontSize = 8.sp, textDecoration = TextDecoration.Underline)
-
-        //Brugt dette link til at lave style knappen:
-        // https://kotlinandroid.org/android-jetpack-compose-set-button-background-color/
-        Button(
-            onClick = {}, modifier = Modifier
-                .padding(24.dp)
-                .size(width = 120.dp, height = 50.dp),
-            shape = RoundedCornerShape(10.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = Salmon)
-        ) {
-            Text("Bestil")
-        }
-        Column(
-            modifier = Modifier.fillMaxHeight(),
-            verticalArrangement = Arrangement.Bottom
-        ) { HomepageNavbar() }
-    }
-}
-
-//Maja
-@Composable
-fun HomepageNavbar() {
-    val miniPadding = Modifier.padding(1.dp)
-    val NavbuttonColors = ButtonDefaults.buttonColors(containerColor = White)
-    Box(
-        modifier = Modifier
-            .background(White)
-            .fillMaxWidth(),
-        contentAlignment = Alignment.Center
-    ) {
-        Row(
-            modifier = Modifier,
-            horizontalArrangement = Arrangement.SpaceEvenly,
-        ) {
-            Button(
-                onClick = {},
-                colors = NavbuttonColors,
-                shape = RoundedCornerShape(0.dp),
-                modifier = miniPadding
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.home_button),
-                    contentDescription = "Highlighted home button dkk"
+        when (openDialog.intValue) {
+            1 -> {
+                PopupFunction(
+                    cContext,
+                    "https://neveranother.dk/cdn/shop/videos/c/vp/0e5fa048aa2d4be98a4d6a43dbc8cf1e/0e5fa048aa2d4be98a4d6a43dbc8cf1e.HD-1080p-2.5Mbps-45153518.mp4?v=0"
                 )
             }
-            Button(
-                onClick = {},
-                colors = NavbuttonColors,
-                shape = RoundedCornerShape(0.dp),
-                modifier = miniPadding
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.maal_button),
-                    contentDescription = "Measurement button dkk"
+
+            2 -> {
+                PopupFunction(
+                    cContext,
+                    "https://neveranother.dk/cdn/shop/videos/c/vp/e1ae0f9b502042e79995107cf269ac08/e1ae0f9b502042e79995107cf269ac08.HD-1080p-2.5Mbps-45153519.mp4?v=0"
                 )
             }
-            Button(
-                onClick = {},
-                colors = NavbuttonColors,
-                shape = RoundedCornerShape(0.dp),
-                modifier = miniPadding
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.kurv_button),
-                    contentDescription = "basket button dkk"
+
+            3 -> {
+                PopupFunction(
+                    cContext,
+                    "https://neveranother.dk/cdn/shop/videos/c/vp/9750bff2d3954cf49bc0829307df8a5c/9750bff2d3954cf49bc0829307df8a5c.HD-1080p-2.5Mbps-45153520.mp4?v=0"
                 )
             }
-            Button(
-                onClick = {},
-                colors = NavbuttonColors,
-                shape = RoundedCornerShape(0.dp),
-                modifier = miniPadding
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.profile_button),
-                    contentDescription = "Profile button dkk"
+
+            4 -> {
+                PopupFunction(
+                    cContext,
+                    "https://neveranother.dk/cdn/shop/videos/c/vp/15e37945865649c6ad85f73d25baa26e/15e37945865649c6ad85f73d25baa26e.HD-1080p-2.5Mbps-45153521.mp4?v=0"
                 )
+            }
+
+            //Brugt dette link til at lave underline til Text element:
+            // https://developer.android.com/develop/ui/compose/text/style-text
+
+            //Brugt dette link til at lave style knappen:
+            // https://kotlinandroid.org/android-jetpack-compose-set-button-background-color/
+            else -> {
+                Text("Usikker på størrelsen?", fontSize = 8.sp)
+                Text("Bestil free fitting", fontSize = 8.sp, textDecoration = TextDecoration.Underline)
+
+                //Brugt dette link til at lave style knappen:
+                // https://kotlinandroid.org/android-jetpack-compose-set-button-background-color/
+                Button(
+                    onClick = {}, modifier = Modifier
+                        .padding(24.dp)
+                        .size(width = 120.dp, height = 50.dp),
+                    shape = RoundedCornerShape(10.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = Salmon)
+                ) {
+                    Text("Bestil")
+                }
+                Column(
+                    modifier = Modifier.fillMaxHeight(),
+                    verticalArrangement = Arrangement.Bottom
+                ) { MeasurementNavbar() }
             }
         }
     }
