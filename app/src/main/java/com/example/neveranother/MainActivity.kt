@@ -102,9 +102,9 @@ fun App() {
                         unfocusedTextColor = Salmon)
                 )
 
-                val FirstInfoIcon = painterResource(R.drawable.info_icon)
+                val firstInfoIcon = painterResource(R.drawable.info_icon)
                 Image(
-                    painter = FirstInfoIcon,
+                    painter = firstInfoIcon,
                     contentDescription = "Information",
                     modifier = Modifier
                         .padding(top = 20.dp, start = 10.dp, end = 50.dp)
@@ -122,9 +122,9 @@ fun App() {
                         unfocusedTextColor = Salmon)
                 )
 
-                val SecondInfoIcon = painterResource(R.drawable.info_icon)
+                val secondInfoIcon = painterResource(R.drawable.info_icon)
                 Image(
-                    painter = SecondInfoIcon,
+                    painter = secondInfoIcon,
                     contentDescription = "Information",
                     modifier = Modifier
                         .padding(top = 20.dp, start = 10.dp)
@@ -147,9 +147,9 @@ fun App() {
                         unfocusedTextColor = Salmon)
                 )
 
-                val ThirdInfoIcon = painterResource(R.drawable.info_icon)
+                val thirdInfoIcon = painterResource(R.drawable.info_icon)
                 Image(
-                    painter = ThirdInfoIcon,
+                    painter = thirdInfoIcon,
                     contentDescription = "Information",
                     modifier = Modifier
                         .padding(top = 20.dp, start = 10.dp, end = 50.dp)
@@ -167,9 +167,9 @@ fun App() {
                         unfocusedTextColor = Salmon)
                 )
 
-                val ForthInfoIcon = painterResource(R.drawable.info_icon)
+                val forthInfoIcon = painterResource(R.drawable.info_icon)
                 Image(
-                    painter = ForthInfoIcon,
+                    painter = forthInfoIcon,
                     contentDescription = "Information",
                     modifier = Modifier
                         .padding(top = 20.dp, start = 10.dp)
