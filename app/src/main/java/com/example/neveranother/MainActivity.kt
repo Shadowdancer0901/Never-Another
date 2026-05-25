@@ -86,11 +86,8 @@ class MainActivity : ComponentActivity() {
 @Preview
 @Composable
 fun App() {
-
     val openDialog = remember {mutableIntStateOf(0)}
     val cContext = LocalContext.current
-
-
 
     Column(
         modifier = Modifier
@@ -221,8 +218,6 @@ fun App() {
                     .clickable { openDialog.intValue = 4 },
                 alignment = Alignment.Center
             )
-
-
         }
 
         if (openDialog.intValue == 1) {
@@ -252,7 +247,6 @@ fun App() {
         Text("Usikker på størrelsen?", fontSize = 8.sp)
         Text("Bestil free fitting", fontSize = 8.sp, textDecoration = TextDecoration.Underline)
 
-
         //Brugt dette link til at lave style knappen:
         // https://kotlinandroid.org/android-jetpack-compose-set-button-background-color/
         Button(
@@ -268,9 +262,7 @@ fun App() {
             modifier = Modifier.fillMaxHeight(),
             verticalArrangement = Arrangement.Bottom
         ) { HomepageNavbar() }
-
     }
-
 }
 
 //Maja
@@ -345,7 +337,6 @@ fun PopupFunction(context: Context, url: String) {
         val popupWidth = 500.dp
         val popupHeight = 500.dp
 
-
         //Brugt dette link til at lave popup feature:
         //https://www.geeksforgeeks.org/kotlin/popup-window-in-android-using-jetpack-compose/
         Popup(
@@ -358,8 +349,6 @@ fun PopupFunction(context: Context, url: String) {
                     .background(Salmon)
                     .border(1.dp, color = Color.Black, RoundedCornerShape(10.dp))
             ) {
-
-
 
                 //Brugt dette link til at tilføje video:
                 //https://www.geeksforgeeks.org/kotlin/create-exoplayer-videoview-in-android-jetpack-compose/
@@ -378,7 +367,6 @@ fun PopupFunction(context: Context, url: String) {
                             prepare(source)
 
                         }
-
                     }
                     AndroidView(
                         modifier = Modifier.size(popupWidth, popupHeight),
@@ -388,7 +376,6 @@ fun PopupFunction(context: Context, url: String) {
                             }
                         })
                 }
-
             }
         }
     }
