@@ -1,12 +1,6 @@
 package com.example.neveranother
 
-import android.R.attr.contentDescription
-import android.R.attr.onClick
-import android.R.attr.textStyle
-import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -21,31 +15,22 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.input.TextFieldLineLimits
 import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldColors
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -57,18 +42,14 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.ui.window.Popup
 import androidx.compose.ui.window.PopupProperties
 import androidx.media3.common.MediaItem.fromUri
-import androidx.media3.common.util.UnstableApi
 import androidx.media3.common.util.Util
 import androidx.media3.datasource.DefaultDataSourceFactory
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.source.ProgressiveMediaSource
 import androidx.media3.ui.PlayerView
-import com.example.neveranother.ui.theme.Cream
 import com.example.neveranother.ui.theme.Gray
-import com.example.neveranother.ui.theme.NeverAnotherTheme
 import com.example.neveranother.ui.theme.Salmon
 import com.example.neveranother.ui.theme.White
-import kotlin.time.Duration.Companion.parse
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -77,7 +58,6 @@ class MainActivity : ComponentActivity() {
 
         setContent() {
             App()
-
         }
     }
 }
@@ -103,9 +83,9 @@ fun App() {
             contentDescription = "Never Another Logo"
         )
 
-        val meassurementPic = painterResource(R.drawable.oevre_omkreds_front)
+        val measurementPic = painterResource(R.drawable.oevre_omkreds_front)
         Image(
-            painter = meassurementPic,
+            painter = measurementPic,
             contentDescription = "Øvre omkreds Front"
         )
 
