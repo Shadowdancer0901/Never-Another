@@ -17,13 +17,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.neveranother.ui.theme.White
+import androidx.navigation.NavController
 import com.example.neveranother.ui.theme.tempColor1
 import com.example.neveranother.ui.theme.tempColor2
 
 //Maja
 
 @Composable
-fun HomepageNavbar(){
+fun HomepageNavbar(navController: NavController){
     val buttonNavmod = Modifier
         .height(75.dp)
         .width(50.dp)
@@ -38,7 +39,7 @@ fun HomepageNavbar(){
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             Button(
-                onClick = {},
+                onClick = {navController.navigate(HomePage)},
                 colors = ButtonDefaults.buttonColors(
                     containerColor = White,
                 ),
@@ -51,7 +52,7 @@ fun HomepageNavbar(){
                 )
             }
             Button(
-                onClick = {},
+                onClick = {navController.navigate(MeasurementPage)},
                 colors = ButtonDefaults.buttonColors(
                     containerColor = White,
                 ),
@@ -65,7 +66,7 @@ fun HomepageNavbar(){
 
             }
             Button(
-                onClick = {},
+                onClick = {navController.navigate(ProductPage)},
                 colors = ButtonDefaults.buttonColors(
                     containerColor = White,
                 ),
@@ -96,7 +97,7 @@ fun HomepageNavbar(){
 }
 
 @Composable
-fun BuyNavbar(){
+fun BuyNavbar(navController: NavController){
     val buttonNavmod = Modifier
         .height(75.dp)
         .width(50.dp)
@@ -111,7 +112,7 @@ fun BuyNavbar(){
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             Button(
-                onClick = {},
+                onClick = {navController.navigate(HomePage)},
                 colors = ButtonDefaults.buttonColors(
                     containerColor = White,
                 ),
@@ -124,7 +125,7 @@ fun BuyNavbar(){
                 )
             }
             Button(
-                onClick = {},
+                onClick = {navController.navigate(MeasurementPage)},
                 colors = ButtonDefaults.buttonColors(
                     containerColor = White,
                 ),
@@ -138,7 +139,7 @@ fun BuyNavbar(){
 
             }
             Button(
-                onClick = {},
+                onClick = {navController.navigate(ProductPage)},
                 colors = ButtonDefaults.buttonColors(
                     containerColor = White,
                 ),
@@ -169,7 +170,7 @@ fun BuyNavbar(){
 }
 
 @Composable
-fun MeasurementNavbar(){
+fun MeasurementNavbar(navController: NavController){
     val buttonNavmod = Modifier
         .height(75.dp)
         .width(50.dp)
@@ -184,7 +185,7 @@ fun MeasurementNavbar(){
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             Button(
-                onClick = {},
+                onClick = {navController.navigate(HomePage)},
                 colors = ButtonDefaults.buttonColors(
                     containerColor = White,
                 ),
@@ -197,7 +198,7 @@ fun MeasurementNavbar(){
                 )
             }
             Button(
-                onClick = {},
+                onClick = {navController.navigate(MeasurementPage)},
                 colors = ButtonDefaults.buttonColors(
                     containerColor = White,
                 ),
@@ -211,7 +212,7 @@ fun MeasurementNavbar(){
 
             }
             Button(
-                onClick = {},
+                onClick = {navController.navigate(ProductPage)},
                 colors = ButtonDefaults.buttonColors(
                     containerColor = White
                 ),
@@ -242,7 +243,7 @@ fun MeasurementNavbar(){
 }
 
 @Composable
-fun ProfileNavbar(){
+fun ProfileNavbar(navController: NavController){
     val buttonNavmod = Modifier
         .height(75.dp)
         .width(50.dp)
@@ -257,7 +258,7 @@ fun ProfileNavbar(){
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             Button(
-                onClick = {},
+                onClick = {navController.navigate(HomePage)},
                 colors = ButtonDefaults.buttonColors(
                     containerColor = White,
                 ),
@@ -270,7 +271,7 @@ fun ProfileNavbar(){
                 )
             }
             Button(
-                onClick = {},
+                onClick = {navController.navigate(MeasurementPage)},
                 colors = ButtonDefaults.buttonColors(
                     containerColor = White,
                 ),
@@ -284,7 +285,7 @@ fun ProfileNavbar(){
 
             }
             Button(
-                onClick = {},
+                onClick = {navController.navigate(ProductPage)},
                 colors = ButtonDefaults.buttonColors(
                     containerColor = White,
                 ),

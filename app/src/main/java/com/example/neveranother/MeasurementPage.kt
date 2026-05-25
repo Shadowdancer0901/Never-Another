@@ -47,12 +47,13 @@ import androidx.media3.datasource.DefaultDataSourceFactory
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.source.ProgressiveMediaSource
 import androidx.media3.ui.PlayerView
+import androidx.navigation.NavController
 import com.example.neveranother.ui.theme.Gray
 import com.example.neveranother.ui.theme.Salmon
 import com.example.neveranother.ui.theme.White
 
 @Composable
-fun MeasurementPage() {
+fun MeasurementPage(navController: NavController) {
 
     //Carousel values
     val itemCount = MeasurementpagePictures.size
@@ -67,7 +68,7 @@ fun MeasurementPage() {
     Scaffold(
         bottomBar = {
             BottomAppBar(containerColor = White)
-            { (MeasurementNavbar()) }
+            { (MeasurementNavbar(navController)) }
         }
     ) { innerPadding ->
         Column(
@@ -268,7 +269,7 @@ fun MeasurementPage() {
                     //Brugt dette link til at lave style knappen:
                     // https://kotlinandroid.org/android-jetpack-compose-set-button-background-color/
                     Button(
-                        onClick = {}, modifier = Modifier
+                        onClick = {navController.navigate(ProductPage)}, modifier = Modifier
                             .padding(24.dp)
                             .size(width = 120.dp, height = 50.dp),
                         shape = RoundedCornerShape(10.dp),

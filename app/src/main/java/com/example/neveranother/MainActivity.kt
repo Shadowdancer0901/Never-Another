@@ -47,6 +47,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.neveranother.ui.theme.NeverAnotherTheme
 
 class MainActivity : ComponentActivity() {
@@ -54,17 +57,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Homepage()
-           // ProductPageScreen()
-            //MeasurementPage()
-            /*NeverAnotherTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }*/
+            AppNavigation()
         }
     }
 }
@@ -84,4 +77,7 @@ fun GreetingPreview() {
         Greeting("Team")
     }
 }
+
+
+
 

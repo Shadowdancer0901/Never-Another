@@ -41,10 +41,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.neveranother.ui.theme.White
 
 @Composable
-fun ProductPageScreen(){
+fun ProductPageScreen(navController: NavController){
     //Carousel values
     val itemCount = ProductpagePictures.size
     val loops = 1000
@@ -55,7 +56,7 @@ fun ProductPageScreen(){
     Scaffold(
         bottomBar = {
             BottomAppBar(containerColor = White)
-            { (BuyNavbar()) }
+            { (BuyNavbar(navController)) }
         }
     ) { innerPadding ->
     LazyColumn(

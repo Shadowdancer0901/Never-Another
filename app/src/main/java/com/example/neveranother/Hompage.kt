@@ -22,13 +22,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.neveranother.ui.theme.White
 import com.example.neveranother.ui.theme.tempColor1
 import com.example.neveranother.ui.theme.tempColor2
 
 //Maja
 @Composable
-fun Homepage() {
+fun Homepage(navController: NavController) {
 
     //Carousel values
     val itemCount = HomepagePictures.size
@@ -46,7 +47,7 @@ fun Homepage() {
     Scaffold(
         bottomBar = {
             BottomAppBar(containerColor = White)
-            { (HomepageNavbar()) }
+            { (HomepageNavbar(navController)) }
         }
     ) { innerPadding ->
         LazyColumn(
@@ -78,7 +79,7 @@ fun Homepage() {
                     .fillMaxSize(),
                     contentAlignment = Alignment.Center){
                         Button(
-                            onClick = {},
+                            onClick = {navController.navigate(MeasurementPage)},
                             colors = ButtonDefaults.buttonColors(
                                 containerColor = White,
                             ),
