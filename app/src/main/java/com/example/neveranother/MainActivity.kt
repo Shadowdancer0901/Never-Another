@@ -62,21 +62,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hi there $name!",
-        modifier = modifier
-    )
-}
-
-
-@Composable
-fun GreetingPreview() {
-    NeverAnotherTheme {
-        Greeting("Team")
-    }
-}
 
 
 
