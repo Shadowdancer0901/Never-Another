@@ -249,7 +249,7 @@ fun ColorSelection() {
             .padding(horizontal = 16.dp)
     ) {
         Text(
-            text = "Color:",
+            text = "Color: $selectedColor",
             fontSize = 20.sp,
             color = Color(0xFFEE9981),
             style = MaterialTheme.typography.titleLarge
@@ -340,7 +340,7 @@ fun AddToCartSection() {
         }
 
         Button(
-            onClick = { /* TODO */ },
+            onClick = { quantity = 1},
             modifier = Modifier
                 .height(44.dp),
             colors = ButtonDefaults.outlinedButtonColors(
