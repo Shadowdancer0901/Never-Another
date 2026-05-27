@@ -1,5 +1,6 @@
 package com.example.neveranother.view
 
+import android.view.View
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -23,8 +24,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import com.example.neveranother.R
 import com.example.neveranother.ui.theme.White
+import com.example.neveranother.viewModel.MeasurementPage
 
 //Maja
 @Composable
@@ -78,7 +81,7 @@ fun Homepage(navController: NavController) {
                     .fillMaxSize(),
                     contentAlignment = Alignment.Center){
                         Button(
-                            onClick = {navController.navigate(MeasurementPage)},
+                            onClick = {navController.navigate(MeasurementPage)}, // TODO hvis der opstår problem med "kald af composable funktion så det her
                             colors = ButtonDefaults.buttonColors(
                                 containerColor = White,
                             ),
