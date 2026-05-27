@@ -26,9 +26,14 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.material3.TextFieldLabelPosition
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -48,6 +53,7 @@ import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.source.ProgressiveMediaSource
 import androidx.media3.ui.PlayerView
 import androidx.navigation.NavController
+import androidx.navigation.compose.composable
 import com.example.neveranother.ui.theme.Gray
 import com.example.neveranother.ui.theme.Salmon
 import com.example.neveranother.ui.theme.White
@@ -77,6 +83,7 @@ fun MeasurementPage(navController: NavController) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             val neverAnotherLogo = painterResource(R.drawable.never_another_logo)
+            val icon = painterResource(R.drawable.info_icon)
             Image(
                 painter = neverAnotherLogo,
                 contentDescription = "Never Another Logo",
@@ -111,9 +118,11 @@ fun MeasurementPage(navController: NavController) {
                 }
             }
 
-            Text("Mål",
+            Text(
+                "Mål",
                 fontSize = 32.sp,
-                modifier = Modifier.padding(top = 6.dp))
+                modifier = Modifier.padding(top = 6.dp)
+            )
 
             Row(
                 modifier = Modifier
@@ -125,22 +134,27 @@ fun MeasurementPage(navController: NavController) {
                 OutlinedTextField(
                     state = rememberTextFieldState(),
                     textStyle = TextStyle(fontSize = 10.sp),
-                    label = { Text("Øvre omkreds", fontSize = 8.sp) },
+                    labelPosition = TextFieldLabelPosition.Attached(
+                        alwaysMinimize = true,
+                        minimizedAlignment = Alignment.Start,
+                        expandedAlignment = Alignment.Start
+                    ),
+                    label = { Text("Øvre omkreds", fontSize = 15.sp) },
                     placeholder = { Text("XX", fontSize = 5.sp, color = Gray) },
                     modifier = Modifier
-                        .size(100.dp, 50.dp),
+                        .size(150.dp, 40.dp),
                     colors = OutlinedTextFieldDefaults.colors(
                         unfocusedBorderColor = Salmon,
                         unfocusedTextColor = Salmon
                     )
                 )
 
-                val firstInfoIcon = painterResource(R.drawable.info_icon)
+
                 Image(
-                    painter = firstInfoIcon,
+                    painter = icon,
                     contentDescription = "Information",
                     modifier = Modifier
-                        .padding(top = 20.dp, start = 10.dp, end = 50.dp)
+                        .padding(top = 20.dp, start = 5.dp, end = 20.dp)
                         .size(15.dp)
                         .clickable { openDialog.intValue = 1 },
                     alignment = Alignment.Center
@@ -149,22 +163,27 @@ fun MeasurementPage(navController: NavController) {
                 OutlinedTextField(
                     state = rememberTextFieldState(),
                     textStyle = TextStyle(fontSize = 10.sp),
-                    label = { Text("Nedre omkreds", fontSize = 8.sp) },
+                    labelPosition = TextFieldLabelPosition.Attached(
+                        alwaysMinimize = true,
+                        minimizedAlignment = Alignment.Start,
+                        expandedAlignment = Alignment.Start
+                    ),
+                    label = { Text("Nedre omkreds", fontSize = 15.sp) },
                     placeholder = { Text("XX", fontSize = 5.sp, color = Gray) },
                     modifier = Modifier
-                        .size(100.dp, 50.dp),
+                        .size(150.dp, 40.dp),
                     colors = OutlinedTextFieldDefaults.colors(
                         unfocusedBorderColor = Salmon,
                         unfocusedTextColor = Salmon
                     )
                 )
 
-                val secondInfoIcon = painterResource(R.drawable.info_icon)
+
                 Image(
-                    painter = secondInfoIcon,
+                    painter = icon,
                     contentDescription = "Information",
                     modifier = Modifier
-                        .padding(top = 20.dp, start = 10.dp)
+                        .padding(top = 20.dp, start = 5.dp)
                         .size(15.dp)
                         .clickable { openDialog.intValue = 2 },
                     alignment = Alignment.Center
@@ -178,22 +197,27 @@ fun MeasurementPage(navController: NavController) {
                 OutlinedTextField(
                     state = rememberTextFieldState(),
                     textStyle = TextStyle(fontSize = 10.sp),
-                    label = { Text("Nedre omkreds", fontSize = 8.sp) },
+                    labelPosition = TextFieldLabelPosition.Attached(
+                        alwaysMinimize = true,
+                        minimizedAlignment = Alignment.Start,
+                        expandedAlignment = Alignment.Start
+                    ),
+                    label = { Text("Bryst højde", fontSize = 15.sp) },
                     placeholder = { Text("XX", fontSize = 5.sp, color = Gray) },
                     modifier = Modifier
-                        .size(100.dp, 50.dp),
+                        .size(150.dp, 40.dp),
                     colors = OutlinedTextFieldDefaults.colors(
                         unfocusedBorderColor = Salmon,
                         unfocusedTextColor = Salmon
                     )
                 )
 
-                val thirdInfoIcon = painterResource(R.drawable.info_icon)
+
                 Image(
-                    painter = thirdInfoIcon,
+                    painter = icon,
                     contentDescription = "Information",
                     modifier = Modifier
-                        .padding(top = 20.dp, start = 10.dp, end = 50.dp)
+                        .padding(top = 20.dp, start = 5.dp, end = 20.dp)
                         .size(15.dp)
                         .clickable { openDialog.intValue = 3 },
                     alignment = Alignment.Center
@@ -202,22 +226,27 @@ fun MeasurementPage(navController: NavController) {
                 OutlinedTextField(
                     state = rememberTextFieldState(),
                     textStyle = TextStyle(fontSize = 10.sp),
-                    label = { Text("Nedre omkreds", fontSize = 8.sp) },
+                    labelPosition = TextFieldLabelPosition.Attached(
+                        alwaysMinimize = true,
+                        minimizedAlignment = Alignment.Start,
+                        expandedAlignment = Alignment.Start
+                    ),
+                    label = { Text("Bryst højde", fontSize = 15.sp) },
                     placeholder = { Text("XX", fontSize = 5.sp, color = Gray) },
                     modifier = Modifier
-                        .size(100.dp, 50.dp),
+                        .size(150.dp, 40.dp),
                     colors = OutlinedTextFieldDefaults.colors(
                         unfocusedBorderColor = Salmon,
                         unfocusedTextColor = Salmon
                     )
                 )
 
-                val forthInfoIcon = painterResource(R.drawable.info_icon)
+
                 Image(
-                    painter = forthInfoIcon,
+                    painter = icon,
                     contentDescription = "Information",
                     modifier = Modifier
-                        .padding(top = 20.dp, start = 10.dp)
+                        .padding(top = 20.dp, start = 5.dp)
                         .size(15.dp)
                         .clickable { openDialog.intValue = 4 },
                     alignment = Alignment.Center
@@ -228,28 +257,32 @@ fun MeasurementPage(navController: NavController) {
                 1 -> {
                     PopupFunction(
                         cContext,
-                        "https://neveranother.dk/cdn/shop/videos/c/vp/0e5fa048aa2d4be98a4d6a43dbc8cf1e/0e5fa048aa2d4be98a4d6a43dbc8cf1e.HD-1080p-2.5Mbps-45153518.mp4?v=0"
+                        "https://neveranother.dk/cdn/shop/videos/c/vp/0e5fa048aa2d4be98a4d6a43dbc8cf1e/0e5fa048aa2d4be98a4d6a43dbc8cf1e.HD-1080p-2.5Mbps-45153518.mp4?v=0",
+                        navController
                     )
                 }
 
                 2 -> {
                     PopupFunction(
                         cContext,
-                        "https://neveranother.dk/cdn/shop/videos/c/vp/e1ae0f9b502042e79995107cf269ac08/e1ae0f9b502042e79995107cf269ac08.HD-1080p-2.5Mbps-45153519.mp4?v=0"
+                        "https://neveranother.dk/cdn/shop/videos/c/vp/e1ae0f9b502042e79995107cf269ac08/e1ae0f9b502042e79995107cf269ac08.HD-1080p-2.5Mbps-45153519.mp4?v=0",
+                        navController
                     )
                 }
 
                 3 -> {
                     PopupFunction(
                         cContext,
-                        "https://neveranother.dk/cdn/shop/videos/c/vp/9750bff2d3954cf49bc0829307df8a5c/9750bff2d3954cf49bc0829307df8a5c.HD-1080p-2.5Mbps-45153520.mp4?v=0"
+                        "https://neveranother.dk/cdn/shop/videos/c/vp/9750bff2d3954cf49bc0829307df8a5c/9750bff2d3954cf49bc0829307df8a5c.HD-1080p-2.5Mbps-45153520.mp4?v=0",
+                        navController
                     )
                 }
 
                 4 -> {
                     PopupFunction(
                         cContext,
-                        "https://neveranother.dk/cdn/shop/videos/c/vp/15e37945865649c6ad85f73d25baa26e/15e37945865649c6ad85f73d25baa26e.HD-1080p-2.5Mbps-45153521.mp4?v=0"
+                        "https://neveranother.dk/cdn/shop/videos/c/vp/15e37945865649c6ad85f73d25baa26e/15e37945865649c6ad85f73d25baa26e.HD-1080p-2.5Mbps-45153521.mp4?v=0",
+                        navController
                     )
                 }
 
@@ -269,7 +302,7 @@ fun MeasurementPage(navController: NavController) {
                     //Brugt dette link til at lave style knappen:
                     // https://kotlinandroid.org/android-jetpack-compose-set-button-background-color/
                     Button(
-                        onClick = {navController.navigate(ProductPage)}, modifier = Modifier
+                        onClick = { navController.navigate(ProductPage) }, modifier = Modifier
                             .padding(24.dp)
                             .size(width = 120.dp, height = 50.dp),
                         shape = RoundedCornerShape(10.dp),
@@ -286,28 +319,41 @@ fun MeasurementPage(navController: NavController) {
 //Chris
 @OptIn(androidx.media3.common.util.UnstableApi::class)
 @Composable
-fun PopupFunction(context: Context, url: String) {
+fun PopupFunction(context: Context, url: String, navController: NavController) {
 
-    Box() {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+    ) {
         val popupWidth = 500.dp
-        val popupHeight = 500.dp
+        val popupHeight = 300.dp
 
         //Brugt dette link til at lave popup feature:
         //https://www.geeksforgeeks.org/kotlin/popup-window-in-android-using-jetpack-compose/
         Popup(
-            alignment = Alignment.Center,
+            alignment = Alignment.BottomCenter,
             properties = PopupProperties()
+
         ) {
+
+
             Box(
                 modifier = Modifier
-                    .size(popupWidth, popupHeight)
-                    .background(Salmon)
-                    .border(1.dp, color = Color.Black, RoundedCornerShape(10.dp))
+                    .fillMaxSize()
+
             ) {
 
                 //Brugt dette link til at tilføje video:
                 //https://www.geeksforgeeks.org/kotlin/create-exoplayer-videoview-in-android-jetpack-compose/
                 Column() {
+                    TextButton(
+                        onClick = { navController.navigate(MeasurementPage) },
+                        modifier = Modifier
+                            .padding(top = 100.dp)
+                            .size(height = 200.dp, width = 500.dp)
+                    ) {
+                    }
+
 
                     val cAndroidX = remember(context) {
                         ExoPlayer.Builder(context).build().apply() {
@@ -323,13 +369,34 @@ fun PopupFunction(context: Context, url: String) {
 
                         }
                     }
+
                     AndroidView(
                         modifier = Modifier.size(popupWidth, popupHeight),
                         factory = { context ->
                             PlayerView(context).apply {
                                 player = cAndroidX
                             }
-                        })
+                        }
+                    )
+
+                    //Brugt denne side til DisposableEffect funktion
+                    //https://levelup.gitconnected.com/stop-using-playerview-in-compose-media3-playersurface-done-right-8c0423c9723a
+                    DisposableEffect(Unit) {
+                        onDispose {
+                            cAndroidX.release()
+                        }
+                    }
+
+
+                    TextButton(
+                        onClick = {
+                            navController.navigate(MeasurementPage)
+                        },
+                        modifier = Modifier
+                            .padding(bottom = 50.dp)
+                            .size(height = 200.dp, width = 500.dp)
+                    ) {
+                    }
                 }
             }
         }
