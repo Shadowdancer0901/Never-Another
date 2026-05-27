@@ -1,4 +1,7 @@
 package com.example.neveranother.model
 
-class Billede {
+data class Billede(
+    val description: String,
+    val imageResID: Int
+) {
 }
