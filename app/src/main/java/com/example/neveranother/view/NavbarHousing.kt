@@ -1,4 +1,4 @@
-package com.example.neveranother
+package com.example.neveranother.view
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -18,8 +18,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.neveranother.ui.theme.White
 import androidx.navigation.NavController
-import com.example.neveranother.ui.theme.tempColor1
-import com.example.neveranother.ui.theme.tempColor2
+import com.example.neveranother.R
+import com.example.neveranother.viewModel.HomePage
+import com.example.neveranother.viewModel.MeasurementPage
+import com.example.neveranother.viewModel.ProductPage
 
 //Maja
 
@@ -46,7 +48,7 @@ fun HomepageNavbar(navController: NavController){
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
                 Image(
-                    painter = painterResource(id=R.drawable.home_highligted_button),
+                    painter = painterResource(id= R.drawable.home_highligted_button),
                     contentDescription = "",
                     modifier = buttonNavmod
                 )
@@ -59,7 +61,7 @@ fun HomepageNavbar(navController: NavController){
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
                 Image(
-                    painter = painterResource(id=R.drawable.maal_button),
+                    painter = painterResource(id= R.drawable.maal_button),
                     contentDescription = "",
                     modifier = buttonNavmod
                 )
@@ -73,7 +75,7 @@ fun HomepageNavbar(navController: NavController){
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
                 Image(
-                    painter = painterResource(id=R.drawable.kurv_button),
+                    painter = painterResource(id= R.drawable.kurv_button),
                     contentDescription = "",
                     modifier = buttonNavmod
                 )
@@ -87,7 +89,7 @@ fun HomepageNavbar(navController: NavController){
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
                 Image(
-                    painter = painterResource(id=R.drawable.profile_button),
+                    painter = painterResource(id= R.drawable.profile_button),
                     contentDescription = "",
                     modifier = buttonNavmod
                 )
@@ -119,7 +121,7 @@ fun BuyNavbar(navController: NavController){
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
                 Image(
-                    painter = painterResource(id=R.drawable.home_button),
+                    painter = painterResource(id= R.drawable.home_button),
                     contentDescription = "",
                     modifier = buttonNavmod
                 )
@@ -132,7 +134,7 @@ fun BuyNavbar(navController: NavController){
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
                 Image(
-                    painter = painterResource(id=R.drawable.maal_button),
+                    painter = painterResource(id= R.drawable.maal_button),
                     contentDescription = "",
                     modifier = buttonNavmod
                 )
@@ -146,7 +148,7 @@ fun BuyNavbar(navController: NavController){
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
                 Image(
-                    painter = painterResource(id=R.drawable.highlight_kurv_button),
+                    painter = painterResource(id= R.drawable.highlight_kurv_button),
                     contentDescription = "",
                     modifier = buttonNavmod
                 )
@@ -160,7 +162,7 @@ fun BuyNavbar(navController: NavController){
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
                 Image(
-                    painter = painterResource(id=R.drawable.profile_button),
+                    painter = painterResource(id= R.drawable.profile_button),
                     contentDescription = "",
                     modifier = buttonNavmod
                 )
@@ -192,7 +194,7 @@ fun MeasurementNavbar(navController: NavController){
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
                 Image(
-                    painter = painterResource(id=R.drawable.home_button),
+                    painter = painterResource(id= R.drawable.home_button),
                     contentDescription = "",
                     modifier = buttonNavmod
                 )
@@ -205,7 +207,7 @@ fun MeasurementNavbar(navController: NavController){
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
                 Image(
-                    painter = painterResource(id=R.drawable.mol_highlited_button),
+                    painter = painterResource(id= R.drawable.mol_highlited_button),
                     contentDescription = "",
                     modifier = buttonNavmod
                 )
@@ -219,7 +221,7 @@ fun MeasurementNavbar(navController: NavController){
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
                 Image(
-                    painter = painterResource(id=R.drawable.kurv_button),
+                    painter = painterResource(id= R.drawable.kurv_button),
                     contentDescription = "",
                     modifier = buttonNavmod
                 )
@@ -233,7 +235,7 @@ fun MeasurementNavbar(navController: NavController){
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
                 Image(
-                    painter = painterResource(id=R.drawable.profile_button),
+                    painter = painterResource(id= R.drawable.profile_button),
                     contentDescription = "",
                     modifier = buttonNavmod
                 )
@@ -265,7 +267,7 @@ fun ProfileNavbar(navController: NavController){
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
                 Image(
-                    painter = painterResource(id=R.drawable.home_button),
+                    painter = painterResource(id= R.drawable.home_button),
                     contentDescription = "",
                     modifier = buttonNavmod
                 )
@@ -278,7 +280,7 @@ fun ProfileNavbar(navController: NavController){
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
                 Image(
-                    painter = painterResource(id=R.drawable.maal_button),
+                    painter = painterResource(id= R.drawable.maal_button),
                     contentDescription = "",
                     modifier = buttonNavmod
                 )
@@ -292,7 +294,7 @@ fun ProfileNavbar(navController: NavController){
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
                 Image(
-                    painter = painterResource(id=R.drawable.kurv_button),
+                    painter = painterResource(id= R.drawable.kurv_button),
                     contentDescription = "",
                     modifier = buttonNavmod
                 )
@@ -306,7 +308,7 @@ fun ProfileNavbar(navController: NavController){
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
                 Image(
-                    painter = painterResource(id=R.drawable.profile_highlighted_button),
+                    painter = painterResource(id= R.drawable.profile_highlighted_button),
                     contentDescription = "",
                     modifier = buttonNavmod
                 )

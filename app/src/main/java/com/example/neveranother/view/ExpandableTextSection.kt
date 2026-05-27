@@ -1,4 +1,4 @@
-package com.example.neveranother
+package com.example.neveranother.view
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.Image
@@ -21,6 +21,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.neveranother.R
+
 // Mathias
 @Composable
 fun ExpandableSection(itemsList: List<Pair<String, String>>){
@@ -55,7 +57,8 @@ fun ExpandableItem(title: String, text: String){
                 fontSize = 16.sp
             )
             Image(
-                painter = if (isExpanded) painterResource(R.drawable.arrow_up) else painterResource(R.drawable.arrow_down),
+                painter = if (isExpanded) painterResource(R.drawable.arrow_up) else painterResource(
+                    R.drawable.arrow_down),
                 contentDescription = "Collapsable item",
                 modifier = Modifier.size(24.dp)
             )

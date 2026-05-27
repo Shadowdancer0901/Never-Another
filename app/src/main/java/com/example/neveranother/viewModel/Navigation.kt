@@ -1,9 +1,12 @@
-package com.example.neveranother
+package com.example.neveranother.viewModel
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.neveranother.view.Homepage
+import com.example.neveranother.view.MeasurementPage
+import com.example.neveranother.view.ProductPageScreen
 import kotlinx.serialization.Serializable
 // Mathias
 @Serializable

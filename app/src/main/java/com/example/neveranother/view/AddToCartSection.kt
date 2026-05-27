@@ -1,4 +1,4 @@
-package com.example.neveranother
+package com.example.neveranother.view
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
