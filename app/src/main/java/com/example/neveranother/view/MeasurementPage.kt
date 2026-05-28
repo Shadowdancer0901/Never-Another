@@ -37,6 +37,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -52,6 +53,7 @@ import androidx.media3.exoplayer.source.ProgressiveMediaSource
 import androidx.media3.ui.PlayerView
 import androidx.navigation.NavController
 import com.example.neveranother.R
+import com.example.neveranother.ui.theme.Black
 import com.example.neveranother.ui.theme.Gray
 import com.example.neveranother.ui.theme.Salmon
 import com.example.neveranother.ui.theme.White
@@ -262,10 +264,10 @@ fun MeasurementPage(navController: NavController, measurementViewModel: Measurem
                         }
                     },
                     textStyle = TextStyle(fontSize = 16.sp),
-                    label = { Text("Bryst højde", fontSize = 15.sp) },
+                    label = { Text("Bryst bredde", fontSize = 15.sp) },
                     placeholder = { Text("XX", fontSize = 14.sp, color = Gray) },
                     modifier = Modifier
-                        .size(150.dp, 40.dp),
+                        .size(150.dp, 60.dp),
                     colors = OutlinedTextFieldDefaults.colors(
                         unfocusedBorderColor = Salmon,
                         unfocusedTextColor = Salmon
@@ -323,16 +325,16 @@ fun MeasurementPage(navController: NavController, measurementViewModel: Measurem
                 //Brugt dette link til at lave style knappen:
                 // https://kotlinandroid.org/android-jetpack-compose-set-button-background-color/
                 else -> {
-                    Text("Usikker på størrelsen?", fontSize = 8.sp)
+                    Text("", fontSize = 8.sp)
                     TextButton(
-                        onClick = {navController.navigate(BookingPage)},
-                        modifier = Modifier
-                            .size(width = 100.dp, height = 30.dp)
+                        onClick = {navController.navigate(BookingPage)}
                     ){
                         Text(
-                            text = "Bestil free fitting",
-                            fontSize = 8.sp,
-                            textDecoration = TextDecoration.Underline
+                            text = "Usikker på størrelsen?\nBestil free fitting",
+                            fontSize = 16.sp,
+                            textAlign = TextAlign.Center,
+                            textDecoration = TextDecoration.Underline,
+                            color = Black
                         )
                     }
 
