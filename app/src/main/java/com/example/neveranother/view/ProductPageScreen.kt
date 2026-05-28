@@ -1,25 +1,17 @@
-package com.example.neveranother
+package com.example.neveranother.view
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
@@ -28,26 +20,20 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.neveranother.R
 import com.example.neveranother.ui.theme.White
 
-
+// Mathias
 @Composable
-fun ProductPageScreen(navController: NavController){
+fun ProductPageScreen(navController: NavController){ // TODO hoist ud alt tekst
     //Carousel values
     val itemCount = ProductpagePictures.size
     val loops = 1000
@@ -76,7 +62,7 @@ fun ProductPageScreen(navController: NavController){
                 contentAlignment = Alignment.Center
             ){
                 Image(
-                    painter = painterResource(id=R.drawable.never_another_logo),
+                    painter = painterResource(id= R.drawable.never_another_logo),
                     contentDescription = "Never another logo",
                     modifier = Modifier
                         .height(80.dp)
@@ -181,10 +167,10 @@ fun ProductPageScreen(navController: NavController){
 
         item {
             "tilføj til kurv del"
-            AddToCartSection()
+            AddToCartSection(false, navController)
         }
 
-        item{
+        item{ // TODO , skal der laves om på hvor denne info står? eller lader vi den stå her direkte?--- der står info om garanti og info
             val itemsListForsendelse = listOf(
                 "Garanti & forsendelse" to "Vi ønsker, at du skal elske din bh. Er pasformen ikke perfekt? Vi tilbyder en gratis størrelsesgaranti!\n" +
                         "\n" +
@@ -235,122 +221,5 @@ fun ProductPageScreen(navController: NavController){
 
 
 
-@Composable
-fun ColorSelection() {
-    val colorOptions = listOf(
-        "Hvid" to Color.White,
-        "Sort" to Color.Black
-    )
-    var selectedColor by remember { mutableStateOf("Hvid") }
 
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp)
-    ) {
-        Text(
-            text = "Color:",
-            fontSize = 20.sp,
-            color = Color(0xFFEE9981),
-            style = MaterialTheme.typography.titleLarge
-        )
 
-        Spacer(modifier = Modifier.height(8.dp))
-
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
-            colorOptions.forEach { (name, color) ->
-                ColorCircle(
-                    color = color,
-                    isSelected = selectedColor == name,
-                    onClick = { selectedColor = name }
-                )
-            }
-        }
-    }
-}
-
-@Composable
-fun ColorCircle(
-    color: Color,
-    isSelected: Boolean,
-    onClick: () -> Unit
-) {
-    Box(
-        modifier = Modifier
-            .size(36.dp)
-            .clip(CircleShape)
-            .background(color)
-            .border(
-                width = if (isSelected) 2.dp else 1.dp,
-                color = if (isSelected) Color(0xFFEE9981) else Color.LightGray,
-                shape = CircleShape
-            )
-            .clickable { onClick() }
-    )
-}
-
-@Composable
-fun AddToCartSection() {
-    var quantity by remember { mutableStateOf(1) }
-
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(12.dp)
-    ) {
-        // Minus knap
-        Box(
-            modifier = Modifier
-                .size(36.dp)
-                .border(1.5.dp, Color(0xFFEE9981), RoundedCornerShape(8.dp))
-                .clickable { if (quantity > 1) quantity-- },
-            contentAlignment = Alignment.Center
-        ) {
-            Text(
-                text = "−",
-                color = Color(0xFFEE9981),
-                fontSize = 20.sp
-            )
-        }
-
-        // Antal
-        Text(
-            text = quantity.toString(),
-            fontSize = 18.sp,
-            color = Color.Black
-        )
-
-        // Plus knap
-        Box(
-            modifier = Modifier
-                .size(36.dp)
-                .border(1.5.dp, Color(0xFFEE9981), RoundedCornerShape(8.dp))
-                .clickable { quantity++ },
-            contentAlignment = Alignment.Center
-        ) {
-            Text(
-                text = "+",
-                color = Color(0xFFEE9981),
-                fontSize = 20.sp
-            )
-        }
-
-        Button(
-            onClick = { /* TODO */ },
-            modifier = Modifier
-                .height(44.dp),
-            colors = ButtonDefaults.outlinedButtonColors(
-                contentColor = Color(0xFFEE9981),
-                containerColor = Color.Transparent
-            ),
-            border = BorderStroke(1.5.dp, Color(0xFFEE9981)),
-            shape = RoundedCornerShape(50.dp)
-        ) {
-            Text(text = "Tilføj til kurv", fontSize = 14.sp)
-        }
-    }
-}

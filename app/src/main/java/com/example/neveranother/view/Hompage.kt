@@ -1,5 +1,6 @@
-package com.example.neveranother
+package com.example.neveranother.view
 
+import android.view.View
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -23,9 +24,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import com.example.neveranother.R
 import com.example.neveranother.ui.theme.White
-import com.example.neveranother.ui.theme.tempColor1
-import com.example.neveranother.ui.theme.tempColor2
+import com.example.neveranother.viewModel.MeasurementPage
 
 //Maja
 @Composable
@@ -64,7 +66,7 @@ fun Homepage(navController: NavController) {
                     contentAlignment = Alignment.Center
                 ){
                     Image(
-                        painter = painterResource(id=R.drawable.never_another_logo),
+                        painter = painterResource(id= R.drawable.never_another_logo),
                         contentDescription = "Never Another Logo",
                         modifier = Modifier
                             .height(80.dp)
@@ -79,7 +81,7 @@ fun Homepage(navController: NavController) {
                     .fillMaxSize(),
                     contentAlignment = Alignment.Center){
                         Button(
-                            onClick = {navController.navigate(MeasurementPage)},
+                            onClick = {navController.navigate(MeasurementPage)}, // TODO hvis der opstår problem med "kald af composable funktion så det her
                             colors = ButtonDefaults.buttonColors(
                                 containerColor = White,
                             ),
@@ -87,7 +89,7 @@ fun Homepage(navController: NavController) {
                             modifier = Modifier
                         )  {
                             Image(
-                                painter = painterResource(id=R.drawable.kobs_billede_homepage),
+                                painter = painterResource(id= R.drawable.kobs_billede_homepage),
                                 contentDescription = "",
                                 modifier = Modifier
                                     .width(414.dp)
@@ -111,7 +113,7 @@ fun Homepage(navController: NavController) {
                         modifier = Modifier
                     ){
                         Image(
-                            painter = painterResource(id=R.drawable.book_fitting_homepage),
+                            painter = painterResource(id= R.drawable.book_fitting_homepage),
                             contentDescription = "",
                             modifier = Modifier
                                 .width(414.dp)
@@ -170,7 +172,7 @@ fun Homepage(navController: NavController) {
                 Box(modifier = pictureBoxMod,
                     contentAlignment = Alignment.Center){
                         Image(
-                            painter = painterResource(id=R.drawable.homepage_b2),
+                            painter = painterResource(id= R.drawable.homepage_b2),
                             contentDescription = "",
                             modifier = Modifier
                                 .width(414.dp)
@@ -199,7 +201,7 @@ fun Homepage(navController: NavController) {
                 Box(modifier = pictureBoxMod,
                     contentAlignment = Alignment.Center){
                         Image(
-                            painter =painterResource(id=R.drawable.homepage_b3),
+                            painter =painterResource(id= R.drawable.homepage_b3),
                             contentDescription = "",
                             modifier = Modifier
                                 .width(414.dp)
@@ -223,7 +225,7 @@ fun Homepage(navController: NavController) {
                Box(modifier = pictureBoxMod,
                    contentAlignment = Alignment.Center){
                    Image(
-                       painter =painterResource(id=R.drawable.homepage_b4),
+                       painter =painterResource(id= R.drawable.homepage_b4),
                        contentDescription = "",
                        modifier = Modifier
                            .width(414.dp)
@@ -247,7 +249,7 @@ fun Homepage(navController: NavController) {
                Box(modifier = pictureBoxMod,
                    contentAlignment = Alignment.Center){
                    Image(
-                       painter =painterResource(id=R.drawable.homepage_b5),
+                       painter =painterResource(id= R.drawable.homepage_b5),
                        contentDescription = "",
                        modifier = Modifier
                            .width(391.dp)

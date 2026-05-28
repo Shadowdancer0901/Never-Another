@@ -1,10 +1,8 @@
-package com.example.neveranother
+package com.example.neveranother.view
 
 import android.content.Context
 import androidx.annotation.OptIn
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -31,14 +29,11 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextFieldLabelPosition
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -49,16 +44,20 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.ui.window.Popup
 import androidx.compose.ui.window.PopupProperties
 import androidx.media3.common.MediaItem.fromUri
+import androidx.media3.common.util.UnstableApi
 import androidx.media3.common.util.Util
 import androidx.media3.datasource.DefaultDataSourceFactory
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.source.ProgressiveMediaSource
 import androidx.media3.ui.PlayerView
 import androidx.navigation.NavController
-import androidx.navigation.compose.composable
+import com.example.neveranother.R
 import com.example.neveranother.ui.theme.Gray
 import com.example.neveranother.ui.theme.Salmon
 import com.example.neveranother.ui.theme.White
+import com.example.neveranother.viewModel.MeasurementPage
+import com.example.neveranother.viewModel.ProductPage
+
 @Composable
 fun MeasurementPage(navController: NavController) {
 
@@ -327,7 +326,8 @@ fun MeasurementPage(navController: NavController) {
                     //Brugt dette link til at lave style knappen:
                     // https://kotlinandroid.org/android-jetpack-compose-set-button-background-color/
                     Button(
-                        onClick = { navController.navigate(ProductPage) }, modifier = Modifier
+                        onClick = { navController.navigate(ProductPage)
+                                  }, modifier = Modifier
                             .padding(24.dp)
                             .size(width = 120.dp, height = 50.dp),
                         shape = RoundedCornerShape(10.dp),
@@ -342,7 +342,7 @@ fun MeasurementPage(navController: NavController) {
 }
 
 //Chris
-@OptIn(androidx.media3.common.util.UnstableApi::class)
+@OptIn(UnstableApi::class)
 @Composable
 fun PopupFunction(context: Context, url: String, navController: NavController) {
 
