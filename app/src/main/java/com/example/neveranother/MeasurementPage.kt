@@ -22,6 +22,7 @@ import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Scaffold
@@ -32,6 +33,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -57,7 +59,6 @@ import androidx.navigation.compose.composable
 import com.example.neveranother.ui.theme.Gray
 import com.example.neveranother.ui.theme.Salmon
 import com.example.neveranother.ui.theme.White
-
 @Composable
 fun MeasurementPage(navController: NavController) {
 
@@ -68,6 +69,7 @@ fun MeasurementPage(navController: NavController) {
     val initialPage = (virtualCount / 2 - ((virtualCount / 2) % itemCount))
     val pagerState = rememberPagerState(initialPage = initialPage, pageCount = { virtualCount })
 
+    //Info video values
     val openDialog = remember { mutableIntStateOf(0) }
     val cContext = LocalContext.current
 
@@ -103,11 +105,32 @@ fun MeasurementPage(navController: NavController) {
             ) { i ->
                 val actualIndex = i % itemCount
                 val MkList = MeasurementpagePictures[actualIndex]
+
                 Box(
                     modifier = Modifier
                         .fillMaxSize(),
                     contentAlignment = Alignment.Center
                 ) {
+                    IconButton(
+                        onClick = {},
+                        modifier = Modifier
+                            .align(Alignment.CenterStart)
+                    ){
+                        Text(
+                            text = "<"
+                        )
+                    }
+
+                    IconButton(
+                        onClick = {},
+                        modifier = Modifier
+                            .align(Alignment.CenterEnd)
+                    ){
+                        Text(
+                            text = ">"
+                        )
+                    }
+
                     Image(
                         painter = painterResource(id = MkList.imageRes),
                         contentDescription = MkList.description,
@@ -117,6 +140,8 @@ fun MeasurementPage(navController: NavController) {
                     )
                 }
             }
+
+
 
             Text(
                 "Mål",
