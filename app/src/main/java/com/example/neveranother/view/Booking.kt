@@ -104,7 +104,6 @@ fun Booking(navController: NavController) {
                 }
             }
 
-
             //Sted
             item() {
                 Row(
@@ -129,8 +128,8 @@ fun Booking(navController: NavController) {
                 }
             }
 
+            //Specialist
             item() {
-                //Specialist
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -149,7 +148,6 @@ fun Booking(navController: NavController) {
                     )
                 }
             }
-
 
             //Resten
             item() {
@@ -185,8 +183,6 @@ fun Booking(navController: NavController) {
 
             //Calender
             item() {
-                val calenderSquare = R.drawable.calender_square_2
-
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -209,450 +205,456 @@ fun Booking(navController: NavController) {
                                 .size(350.dp)
                         )
 
-                        //Calendar days
-                        Column(
-                            modifier = Modifier
-                                .size(350.dp)
-                                .padding(top = 150.dp),
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ){
-                            Row(
-                                modifier = Modifier
-                            ) {
-                                Box(
-                                    contentAlignment = Alignment.Center
-                                ){
-                                    Image(
-                                        painter = painterResource(calenderSquare),
-                                        contentDescription = "Calender Square",
-                                        modifier = Modifier
-                                            .padding(start = 7.dp, end = 7.dp)
-                                            .size(50.dp)
-                                    )
-                                    Text(
-                                        text = "1"
-                                    )
-                                }
-
-                                Box(
-                                    contentAlignment = Alignment.Center
-                                ){
-                                    Image(
-                                        painter = painterResource(calenderSquare),
-                                        contentDescription = "Calender Square",
-                                        modifier = Modifier
-                                            .padding(start = 7.dp, end = 7.dp)
-                                            .size(50.dp)
-
-                                    )
-
-                                    Text(
-                                        text = "2"
-                                    )
-                                }
-                                Box(
-                                    contentAlignment = Alignment.Center
-                                ){
-                                    Image(
-                                        painter = painterResource(calenderSquare),
-                                        contentDescription = "Calender Square",
-                                        modifier = Modifier
-                                            .padding(start = 7.dp, end = 7.dp)
-                                            .size(50.dp)
-
-                                    )
-
-                                    Text(
-                                        text = "3"
-                                    )
-                                }
-
-                                Box(
-                                    contentAlignment = Alignment.Center
-                                ){
-                                    Image(
-                                        painter = painterResource(calenderSquare),
-                                        contentDescription = "Calender Square",
-                                        modifier = Modifier
-                                            .padding(start = 7.dp, end = 7.dp)
-                                            .size(50.dp)
-
-                                    )
-
-                                    Text(
-                                        text = "4"
-                                    )
-                                }
-
-                                Box(
-                                    contentAlignment = Alignment.Center
-                                ){
-                                    Image(
-                                        painter = painterResource(calenderSquare),
-                                        contentDescription = "Calender Square",
-                                        modifier = Modifier
-                                            .padding(start = 7.dp, end = 7.dp)
-                                            .size(50.dp)
-
-                                    )
-
-                                    Text(
-                                        text = "5"
-                                    )
-                                }
-                            }
-
-                            Row(
-                                modifier = Modifier
-                            ) {
-                                Box(
-                                    contentAlignment = Alignment.Center
-                                ){
-                                    Image(
-                                        painter = painterResource(calenderSquare),
-                                        contentDescription = "Calender Square",
-                                        modifier = Modifier
-                                            .padding(start = 7.dp, end = 7.dp)
-                                            .size(50.dp)
-                                    )
-
-                                    Text(
-                                        text = "1"
-                                    )
-                                }
-
-                                Box(
-                                    contentAlignment = Alignment.Center
-                                ){
-                                    Image(
-                                        painter = painterResource(calenderSquare),
-                                        contentDescription = "Calender Square",
-                                        modifier = Modifier
-                                            .padding(start = 7.dp, end = 7.dp)
-                                            .size(50.dp)
-
-                                    )
-
-                                    Text(
-                                        text = "2"
-                                    )
-                                }
-                                Box(
-                                    contentAlignment = Alignment.Center
-                                ){
-                                    Image(
-                                        painter = painterResource(calenderSquare),
-                                        contentDescription = "Calender Square",
-                                        modifier = Modifier
-                                            .padding(start = 7.dp, end = 7.dp)
-                                            .size(50.dp)
-
-                                    )
-
-                                    Text(
-                                        text = "3"
-                                    )
-                                }
-
-                                Box(
-                                    contentAlignment = Alignment.Center
-                                ){
-                                    Image(
-                                        painter = painterResource(calenderSquare),
-                                        contentDescription = "Calender Square",
-                                        modifier = Modifier
-                                            .padding(start = 7.dp, end = 7.dp)
-                                            .size(50.dp)
-
-                                    )
-
-                                    Text(
-                                        text = "4"
-                                    )
-                                }
-
-                                Box(
-                                    contentAlignment = Alignment.Center
-                                ){
-                                    Image(
-                                        painter = painterResource(calenderSquare),
-                                        contentDescription = "Calender Square",
-                                        modifier = Modifier
-                                            .padding(start = 7.dp, end = 7.dp)
-                                            .size(50.dp)
-
-                                    )
-
-                                    Text(
-                                        text = "5"
-                                    )
-                                }
-                            }
-
-                            Row(
-                                modifier = Modifier
-                            ) {
-                                Box(
-                                    contentAlignment = Alignment.Center
-                                ){
-                                    Image(
-                                        painter = painterResource(calenderSquare),
-                                        contentDescription = "Calender Square",
-                                        modifier = Modifier
-                                            .padding(start = 7.dp, end = 7.dp)
-                                            .size(50.dp)
-                                    )
-
-                                    Text(
-                                        text = "1"
-                                    )
-                                }
-
-                                Box(
-                                    contentAlignment = Alignment.Center
-                                ){
-                                    Image(
-                                        painter = painterResource(calenderSquare),
-                                        contentDescription = "Calender Square",
-                                        modifier = Modifier
-                                            .padding(start = 7.dp, end = 7.dp)
-                                            .size(50.dp)
-
-                                    )
-
-                                    Text(
-                                        text = "2"
-                                    )
-                                }
-                                Box(
-                                    contentAlignment = Alignment.Center
-                                ){
-                                    Image(
-                                        painter = painterResource(calenderSquare),
-                                        contentDescription = "Calender Square",
-                                        modifier = Modifier
-                                            .padding(start = 7.dp, end = 7.dp)
-                                            .size(50.dp)
-
-                                    )
-
-                                    Text(
-                                        text = "3"
-                                    )
-                                }
-
-                                Box(
-                                    contentAlignment = Alignment.Center
-                                ){
-                                    Image(
-                                        painter = painterResource(calenderSquare),
-                                        contentDescription = "Calender Square",
-                                        modifier = Modifier
-                                            .padding(start = 7.dp, end = 7.dp)
-                                            .size(50.dp)
-
-                                    )
-
-                                    Text(
-                                        text = "4"
-                                    )
-                                }
-
-                                Box(
-                                    contentAlignment = Alignment.Center
-                                ){
-                                    Image(
-                                        painter = painterResource(calenderSquare),
-                                        contentDescription = "Calender Square",
-                                        modifier = Modifier
-                                            .padding(start = 7.dp, end = 7.dp)
-                                            .size(50.dp)
-
-                                    )
-
-                                    Text(
-                                        text = "5"
-                                    )
-                                }
-                            }
-
-                            Row(
-                                modifier = Modifier
-                            ) {
-                                Box(
-                                    contentAlignment = Alignment.Center
-                                ){
-                                    Image(
-                                        painter = painterResource(calenderSquare),
-                                        contentDescription = "Calender Square",
-                                        modifier = Modifier
-                                            .padding(start = 7.dp, end = 7.dp)
-                                            .size(50.dp)
-                                    )
-
-                                    Text(
-                                        text = "1"
-                                    )
-                                }
-
-                                Box(
-                                    contentAlignment = Alignment.Center
-                                ){
-                                    Image(
-                                        painter = painterResource(calenderSquare),
-                                        contentDescription = "Calender Square",
-                                        modifier = Modifier
-                                            .padding(start = 7.dp, end = 7.dp)
-                                            .size(50.dp)
-
-                                    )
-
-                                    Text(
-                                        text = "2"
-                                    )
-                                }
-                                Box(
-                                    contentAlignment = Alignment.Center
-                                ){
-                                    Image(
-                                        painter = painterResource(calenderSquare),
-                                        contentDescription = "Calender Square",
-                                        modifier = Modifier
-                                            .padding(start = 7.dp, end = 7.dp)
-                                            .size(50.dp)
-
-                                    )
-
-                                    Text(
-                                        text = "3"
-                                    )
-                                }
-
-                                Box(
-                                    contentAlignment = Alignment.Center
-                                ){
-                                    Image(
-                                        painter = painterResource(calenderSquare),
-                                        contentDescription = "Calender Square",
-                                        modifier = Modifier
-                                            .padding(start = 7.dp, end = 7.dp)
-                                            .size(50.dp)
-
-                                    )
-
-                                    Text(
-                                        text = "4"
-                                    )
-                                }
-
-                                Box(
-                                    contentAlignment = Alignment.Center
-                                ){
-                                    Image(
-                                        painter = painterResource(calenderSquare),
-                                        contentDescription = "Calender Square",
-                                        modifier = Modifier
-                                            .padding(start = 7.dp, end = 7.dp)
-                                            .size(50.dp)
-
-                                    )
-
-                                    Text(
-                                        text = "5"
-                                    )
-                                }
-                            }
-
-                            Row(
-                                modifier = Modifier
-                            ) {
-                                Box(
-                                    contentAlignment = Alignment.Center
-                                ){
-                                    Image(
-                                        painter = painterResource(calenderSquare),
-                                        contentDescription = "Calender Square",
-                                        modifier = Modifier
-                                            .padding(start = 7.dp, end = 7.dp)
-                                            .size(50.dp)
-                                    )
-
-                                    Text(
-                                        text = "1"
-                                    )
-                                }
-
-                                Box(
-                                    contentAlignment = Alignment.Center
-                                ){
-                                    Image(
-                                        painter = painterResource(calenderSquare),
-                                        contentDescription = "Calender Square",
-                                        modifier = Modifier
-                                            .padding(start = 7.dp, end = 7.dp)
-                                            .size(50.dp)
-
-                                    )
-
-                                    Text(
-                                        text = "2"
-                                    )
-                                }
-                                Box(
-                                    contentAlignment = Alignment.Center
-                                ){
-                                    Image(
-                                        painter = painterResource(calenderSquare),
-                                        contentDescription = "Calender Square",
-                                        modifier = Modifier
-                                            .padding(start = 7.dp, end = 7.dp)
-                                            .size(50.dp)
-
-                                    )
-
-                                    Text(
-                                        text = "3"
-                                    )
-                                }
-
-                                Box(
-                                    contentAlignment = Alignment.Center
-                                ){
-                                    Image(
-                                        painter = painterResource(calenderSquare),
-                                        contentDescription = "Calender Square",
-                                        modifier = Modifier
-                                            .padding(start = 7.dp, end = 7.dp)
-                                            .size(50.dp)
-
-                                    )
-
-                                    Text(
-                                        text = "4"
-                                    )
-                                }
-
-                                Box(
-                                    contentAlignment = Alignment.Center
-                                ){
-                                    Image(
-                                        painter = painterResource(calenderSquare),
-                                        contentDescription = "Calender Square",
-                                        modifier = Modifier
-                                            .padding(start = 7.dp, end = 7.dp)
-                                            .size(50.dp)
-
-                                    )
-
-                                    Text(
-                                        text = "5"
-                                    )
-                                }
-                            }
-                        }
-
+                        CalenderDays()
                     }
                 }
+            }
+        }
+    }
+}
+
+@Composable
+fun CalenderDays() {
+    val calenderSquare = R.drawable.calender_square_2
+
+    //Calendar days
+    Column(
+        modifier = Modifier
+            .size(350.dp)
+            .padding(top = 150.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Row(
+            modifier = Modifier
+        ) {
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 7.dp, end = 7.dp)
+                        .size(50.dp)
+                )
+                Text(
+                    text = "1"
+                )
+            }
+
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 7.dp, end = 7.dp)
+                        .size(50.dp)
+
+                )
+
+                Text(
+                    text = "2"
+                )
+            }
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 7.dp, end = 7.dp)
+                        .size(50.dp)
+
+                )
+
+                Text(
+                    text = "3"
+                )
+            }
+
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 7.dp, end = 7.dp)
+                        .size(50.dp)
+
+                )
+
+                Text(
+                    text = "4"
+                )
+            }
+
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 7.dp, end = 7.dp)
+                        .size(50.dp)
+
+                )
+
+                Text(
+                    text = "5"
+                )
+            }
+        }
+
+        Row(
+            modifier = Modifier
+        ) {
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 7.dp, end = 7.dp)
+                        .size(50.dp)
+                )
+
+                Text(
+                    text = "1"
+                )
+            }
+
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 7.dp, end = 7.dp)
+                        .size(50.dp)
+
+                )
+
+                Text(
+                    text = "2"
+                )
+            }
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 7.dp, end = 7.dp)
+                        .size(50.dp)
+
+                )
+
+                Text(
+                    text = "3"
+                )
+            }
+
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 7.dp, end = 7.dp)
+                        .size(50.dp)
+
+                )
+
+                Text(
+                    text = "4"
+                )
+            }
+
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 7.dp, end = 7.dp)
+                        .size(50.dp)
+
+                )
+
+                Text(
+                    text = "5"
+                )
+            }
+        }
+
+        Row(
+            modifier = Modifier
+        ) {
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 7.dp, end = 7.dp)
+                        .size(50.dp)
+                )
+
+                Text(
+                    text = "1"
+                )
+            }
+
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 7.dp, end = 7.dp)
+                        .size(50.dp)
+
+                )
+
+                Text(
+                    text = "2"
+                )
+            }
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 7.dp, end = 7.dp)
+                        .size(50.dp)
+
+                )
+
+                Text(
+                    text = "3"
+                )
+            }
+
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 7.dp, end = 7.dp)
+                        .size(50.dp)
+
+                )
+
+                Text(
+                    text = "4"
+                )
+            }
+
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 7.dp, end = 7.dp)
+                        .size(50.dp)
+
+                )
+
+                Text(
+                    text = "5"
+                )
+            }
+        }
+
+        Row(
+            modifier = Modifier
+        ) {
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 7.dp, end = 7.dp)
+                        .size(50.dp)
+                )
+
+                Text(
+                    text = "1"
+                )
+            }
+
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 7.dp, end = 7.dp)
+                        .size(50.dp)
+
+                )
+
+                Text(
+                    text = "2"
+                )
+            }
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 7.dp, end = 7.dp)
+                        .size(50.dp)
+
+                )
+
+                Text(
+                    text = "3"
+                )
+            }
+
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 7.dp, end = 7.dp)
+                        .size(50.dp)
+
+                )
+
+                Text(
+                    text = "4"
+                )
+            }
+
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 7.dp, end = 7.dp)
+                        .size(50.dp)
+
+                )
+
+                Text(
+                    text = "5"
+                )
+            }
+        }
+
+        Row(
+            modifier = Modifier
+        ) {
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 7.dp, end = 7.dp)
+                        .size(50.dp)
+                )
+
+                Text(
+                    text = "1"
+                )
+            }
+
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 7.dp, end = 7.dp)
+                        .size(50.dp)
+
+                )
+
+                Text(
+                    text = "2"
+                )
+            }
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 7.dp, end = 7.dp)
+                        .size(50.dp)
+
+                )
+
+                Text(
+                    text = "3"
+                )
+            }
+
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 7.dp, end = 7.dp)
+                        .size(50.dp)
+
+                )
+
+                Text(
+                    text = "4"
+                )
+            }
+
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 7.dp, end = 7.dp)
+                        .size(50.dp)
+
+                )
+
+                Text(
+                    text = "5"
+                )
             }
         }
     }
