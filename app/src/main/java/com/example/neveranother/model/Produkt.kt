@@ -8,6 +8,7 @@ data class Produkt(
     val materialsList: List<String>,
     val cleaningGuide: String,
     val imageList: List<Billede>,
-    val colors: List<Color>
+    val colors: List<Color>,
+    val chosenColor: Color
     ) {
 }

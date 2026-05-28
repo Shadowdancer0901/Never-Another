@@ -57,17 +57,18 @@ import com.example.neveranother.ui.theme.Salmon
 import com.example.neveranother.ui.theme.White
 import com.example.neveranother.viewModel.BookingPage
 import com.example.neveranother.viewModel.MeasurementPage
+import com.example.neveranother.viewModel.MeasurementVM
 import com.example.neveranother.viewModel.ProductPage
 
 @Composable
-fun MeasurementPage(navController: NavController) {
+fun MeasurementPage(navController: NavController, measurementViewModel: MeasurementVM) {
 
     //Carousel values
     val itemCount = MeasurementpagePictures.size
     val loops = 1000
     val virtualCount = itemCount * loops
     val initialPage = (virtualCount / 2 - ((virtualCount / 2) % itemCount))
-    var pagerState = rememberPagerState(initialPage = initialPage, pageCount = { virtualCount })
+    val pagerState = rememberPagerState(initialPage = initialPage, pageCount = { virtualCount })
 
     //Info video values
     val openDialog = remember { mutableIntStateOf(0) }
@@ -158,17 +159,18 @@ fun MeasurementPage(navController: NavController) {
                 //Used this link to style our OutlinedTextField:
                 // https://stackoverflow.com/questions/66453775/how-to-change-the-outline-color-of-outlinedtextfield-from-jetpack-compose
                 OutlinedTextField(
-                    state = rememberTextFieldState(),
-                    textStyle = TextStyle(fontSize = 10.sp),
-                    labelPosition = TextFieldLabelPosition.Attached(
-                        alwaysMinimize = true,
-                        minimizedAlignment = Alignment.Start,
-                        expandedAlignment = Alignment.Start
-                    ),
+                    value = measurementViewModel.upperCircumference,
+                    onValueChange = {
+                        if (it.matches(Regex("^\\d*\\.?\\d{0,2}$")) || it.isEmpty() ) //har ikke selv skrevet regex, men den betyder at der kun må være tal og max 2 efter "."
+                        {
+                            measurementViewModel.upperCircumference = it
+                        }
+                    },
+                    textStyle = TextStyle(fontSize = 16.sp),
                     label = { Text("Øvre omkreds", fontSize = 15.sp) },
-                    placeholder = { Text("XX", fontSize = 5.sp, color = Gray) },
+                    placeholder = { Text("XX", fontSize = 14.sp, color = Gray) },
                     modifier = Modifier
-                        .size(150.dp, 40.dp),
+                        .size(150.dp, 60.dp),
                     colors = OutlinedTextFieldDefaults.colors(
                         unfocusedBorderColor = Salmon,
                         unfocusedTextColor = Salmon
@@ -187,17 +189,18 @@ fun MeasurementPage(navController: NavController) {
                 )
 
                 OutlinedTextField(
-                    state = rememberTextFieldState(),
-                    textStyle = TextStyle(fontSize = 10.sp),
-                    labelPosition = TextFieldLabelPosition.Attached(
-                        alwaysMinimize = true,
-                        minimizedAlignment = Alignment.Start,
-                        expandedAlignment = Alignment.Start
-                    ),
+                    value = measurementViewModel.lowerCircumference,
+                    onValueChange = {
+                        if (it.matches(Regex("^\\d*\\.?\\d{0,2}$")) || it.isEmpty() ) //har ikke selv skrevet regex, men den betyder at der kun må være tal og max 2 efter "."
+                        {
+                            measurementViewModel.lowerCircumference = it
+                        }
+                    },
+                    textStyle = TextStyle(fontSize = 16.sp),
                     label = { Text("Nedre omkreds", fontSize = 15.sp) },
-                    placeholder = { Text("XX", fontSize = 5.sp, color = Gray) },
+                    placeholder = { Text("XX", fontSize = 14.sp, color = Gray) },
                     modifier = Modifier
-                        .size(150.dp, 40.dp),
+                        .size(150.dp, 60.dp),
                     colors = OutlinedTextFieldDefaults.colors(
                         unfocusedBorderColor = Salmon,
                         unfocusedTextColor = Salmon
@@ -221,17 +224,18 @@ fun MeasurementPage(navController: NavController) {
                     .padding(24.dp)
             ) {
                 OutlinedTextField(
-                    state = rememberTextFieldState(),
-                    textStyle = TextStyle(fontSize = 10.sp),
-                    labelPosition = TextFieldLabelPosition.Attached(
-                        alwaysMinimize = true,
-                        minimizedAlignment = Alignment.Start,
-                        expandedAlignment = Alignment.Start
-                    ),
+                    value = measurementViewModel.breastHeight,
+                    onValueChange = {
+                        if (it.matches(Regex("^\\d*\\.?\\d{0,2}$")) || it.isEmpty() ) //har ikke selv skrevet regex, men den betyder at der kun må være tal og max 2 efter "."
+                        {
+                            measurementViewModel.breastHeight= it
+                        }
+                    },
+                    textStyle = TextStyle(fontSize = 16.sp),
                     label = { Text("Bryst højde", fontSize = 15.sp) },
-                    placeholder = { Text("XX", fontSize = 5.sp, color = Gray) },
+                    placeholder = { Text("XX", fontSize = 14.sp, color = Gray) },
                     modifier = Modifier
-                        .size(150.dp, 40.dp),
+                        .size(150.dp, 60.dp),
                     colors = OutlinedTextFieldDefaults.colors(
                         unfocusedBorderColor = Salmon,
                         unfocusedTextColor = Salmon
@@ -250,15 +254,16 @@ fun MeasurementPage(navController: NavController) {
                 )
 
                 OutlinedTextField(
-                    state = rememberTextFieldState(),
-                    textStyle = TextStyle(fontSize = 10.sp),
-                    labelPosition = TextFieldLabelPosition.Attached(
-                        alwaysMinimize = true,
-                        minimizedAlignment = Alignment.Start,
-                        expandedAlignment = Alignment.Start
-                    ),
+                    value = measurementViewModel.breastWidth,
+                    onValueChange = {
+                        if (it.matches(Regex("^\\d*\\.?\\d{0,2}$")) || it.isEmpty() ) //har ikke selv skrevet regex, men den betyder at der kun må være tal og max 2 efter "."
+                        {
+                            measurementViewModel.breastWidth= it
+                        }
+                    },
+                    textStyle = TextStyle(fontSize = 16.sp),
                     label = { Text("Bryst højde", fontSize = 15.sp) },
-                    placeholder = { Text("XX", fontSize = 5.sp, color = Gray) },
+                    placeholder = { Text("XX", fontSize = 14.sp, color = Gray) },
                     modifier = Modifier
                         .size(150.dp, 40.dp),
                     colors = OutlinedTextFieldDefaults.colors(
@@ -341,7 +346,7 @@ fun MeasurementPage(navController: NavController) {
                         shape = RoundedCornerShape(10.dp),
                         colors = ButtonDefaults.buttonColors(containerColor = Salmon)
                     ) {
-                        Text("Bestil")
+                        Text("Bestil", fontSize = 20.sp)
                     }
                 }
             }

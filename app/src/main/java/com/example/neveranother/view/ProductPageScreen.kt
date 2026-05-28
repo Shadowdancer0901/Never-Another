@@ -20,6 +20,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -30,10 +34,11 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.neveranother.R
 import com.example.neveranother.ui.theme.White
+import com.example.neveranother.viewModel.MeasurementVM
 
 // Mathias
 @Composable
-fun ProductPageScreen(navController: NavController){ // TODO hoist ud alt tekst
+fun ProductPageScreen(navController: NavController, measurementViewModel: MeasurementVM){ // TODO hoist ud alt tekst
     //Carousel values
     val itemCount = ProductpagePictures.size
     val loops = 1000
@@ -162,12 +167,12 @@ fun ProductPageScreen(navController: NavController){ // TODO hoist ud alt tekst
         }
 
         item {
-            ColorSelection()
+            ColorSelection(measurementViewModel)
         }
 
         item {
             "tilføj til kurv del"
-            AddToCartSection(false, navController)
+            AddToCartSection(measurementViewModel, navController)
         }
 
         item{ // TODO , skal der laves om på hvor denne info står? eller lader vi den stå her direkte?--- der står info om garanti og info
@@ -189,9 +194,13 @@ fun ProductPageScreen(navController: NavController){ // TODO hoist ud alt tekst
                     .fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ) {
+                var showCheckout by remember { mutableStateOf(false) }
+                if(showCheckout){
+                    CheckoutPopUp(measurementViewModel)
+                }
 
                 Button(
-                    onClick = { /* TODO  mangler at tilføje logik ved checkout*/ },
+                    onClick = { if(measurementViewModel.quantityOfProduct > 0)showCheckout = true},
                     modifier = Modifier
                         .height(44.dp)
                         .padding(horizontal = 40.dp),

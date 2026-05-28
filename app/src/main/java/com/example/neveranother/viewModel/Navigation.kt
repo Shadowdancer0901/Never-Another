@@ -1,6 +1,7 @@
 package com.example.neveranother.viewModel
 
 import androidx.compose.runtime.Composable
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -26,19 +27,20 @@ object BookingPage {
 @Composable
 fun AppNavigation() {
     val navController = rememberNavController()
+    val measurementViewModel: MeasurementVM = viewModel()
 
     NavHost(
         navController = navController,
         startDestination = HomePage
     ) {
         composable<ProductPage> {
-            ProductPageScreen(navController = navController)
+            ProductPageScreen(navController = navController, measurementViewModel)
         }
         composable<HomePage> {
             Homepage(navController = navController)
         }
         composable<MeasurementPage> {
-            MeasurementPage(navController = navController)
+            MeasurementPage(navController = navController, measurementViewModel)
         }
         composable<BookingPage> {
             Booking(navController = navController)

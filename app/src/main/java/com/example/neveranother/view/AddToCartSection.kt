@@ -28,9 +28,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.neveranother.viewModel.MeasurementPage
+import com.example.neveranother.viewModel.MeasurementVM
 
+//Mathias
 @Composable
-fun AddToCartSection(hasMeasurement: Boolean, navController: NavController) {
+fun AddToCartSection(viewModel: MeasurementVM, navController: NavController) {
     var quantity by remember { mutableStateOf(1) }
     var showMeasurementDialog by remember { mutableStateOf(false) }
 
@@ -111,9 +113,11 @@ fun AddToCartSection(hasMeasurement: Boolean, navController: NavController) {
         }
 
         Button(
-            onClick = { quantity = 1
-                if (hasMeasurement) {
-                    // TODO: tilføj til kurv logik
+            onClick = {
+                if (viewModel.hasMeasurements()) {
+                    viewModel.quantityOfProduct = quantity
+                    viewModel.productColor = viewModel.tempProductColor
+                    quantity = 1
                 } else {
                     showMeasurementDialog = true  // ✅ vis popup
                 }},
