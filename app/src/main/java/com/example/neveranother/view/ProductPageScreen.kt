@@ -30,10 +30,11 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.neveranother.R
 import com.example.neveranother.ui.theme.White
+import com.example.neveranother.viewModel.MeasurementVM
 
 // Mathias
 @Composable
-fun ProductPageScreen(navController: NavController){ // TODO hoist ud alt tekst
+fun ProductPageScreen(navController: NavController, measurementViewModel: MeasurementVM){ // TODO hoist ud alt tekst
     //Carousel values
     val itemCount = ProductpagePictures.size
     val loops = 1000
@@ -167,7 +168,7 @@ fun ProductPageScreen(navController: NavController){ // TODO hoist ud alt tekst
 
         item {
             "tilføj til kurv del"
-            AddToCartSection(false, navController)
+            AddToCartSection(measurementViewModel.hasMeasurements(), navController)
         }
 
         item{ // TODO , skal der laves om på hvor denne info står? eller lader vi den stå her direkte?--- der står info om garanti og info
