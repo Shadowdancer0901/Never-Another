@@ -20,6 +20,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -163,12 +167,12 @@ fun ProductPageScreen(navController: NavController, measurementViewModel: Measur
         }
 
         item {
-            ColorSelection()
+            ColorSelection(measurementViewModel)
         }
 
         item {
             "tilføj til kurv del"
-            AddToCartSection(measurementViewModel.hasMeasurements(), navController)
+            AddToCartSection(measurementViewModel, navController)
         }
 
         item{ // TODO , skal der laves om på hvor denne info står? eller lader vi den stå her direkte?--- der står info om garanti og info
@@ -190,9 +194,13 @@ fun ProductPageScreen(navController: NavController, measurementViewModel: Measur
                     .fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ) {
+                var showCheckout by remember { mutableStateOf(false) }
+                if(showCheckout){
+                    CheckoutPopUp(measurementViewModel)
+                }
 
                 Button(
-                    onClick = { /* TODO  mangler at tilføje logik ved checkout*/ },
+                    onClick = { if(measurementViewModel.quantityOfProduct > 0)showCheckout = true},
                     modifier = Modifier
                         .height(44.dp)
                         .padding(horizontal = 40.dp),
