@@ -221,7 +221,7 @@ fun CalenderDays() {
     Column(
         modifier = Modifier
             .size(350.dp)
-            .padding(top = 150.dp),
+            .padding(top = 140.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Row(
@@ -234,7 +234,7 @@ fun CalenderDays() {
                     painter = painterResource(calenderSquare),
                     contentDescription = "Calender Square",
                     modifier = Modifier
-                        .padding(start = 7.dp, end = 7.dp)
+                        .padding(start = 8.dp, end = 8.dp)
                         .size(50.dp)
                 )
                 Text(
@@ -249,7 +249,7 @@ fun CalenderDays() {
                     painter = painterResource(calenderSquare),
                     contentDescription = "Calender Square",
                     modifier = Modifier
-                        .padding(start = 7.dp, end = 7.dp)
+                        .padding(start = 8.dp, end = 8.dp)
                         .size(50.dp)
 
                 )
@@ -265,7 +265,7 @@ fun CalenderDays() {
                     painter = painterResource(calenderSquare),
                     contentDescription = "Calender Square",
                     modifier = Modifier
-                        .padding(start = 7.dp, end = 7.dp)
+                        .padding(start = 8.dp, end = 8.dp)
                         .size(50.dp)
 
                 )
@@ -282,7 +282,7 @@ fun CalenderDays() {
                     painter = painterResource(calenderSquare),
                     contentDescription = "Calender Square",
                     modifier = Modifier
-                        .padding(start = 7.dp, end = 7.dp)
+                        .padding(start = 8.dp, end = 8.dp)
                         .size(50.dp)
 
                 )
@@ -299,7 +299,7 @@ fun CalenderDays() {
                     painter = painterResource(calenderSquare),
                     contentDescription = "Calender Square",
                     modifier = Modifier
-                        .padding(start = 7.dp, end = 7.dp)
+                        .padding(start = 8.dp, end = 8.dp)
                         .size(50.dp)
 
                 )
@@ -320,12 +320,12 @@ fun CalenderDays() {
                     painter = painterResource(calenderSquare),
                     contentDescription = "Calender Square",
                     modifier = Modifier
-                        .padding(start = 7.dp, end = 7.dp)
+                        .padding(start = 8.dp, end = 8.dp)
                         .size(50.dp)
                 )
 
                 Text(
-                    text = "1"
+                    text = "6"
                 )
             }
 
@@ -336,13 +336,13 @@ fun CalenderDays() {
                     painter = painterResource(calenderSquare),
                     contentDescription = "Calender Square",
                     modifier = Modifier
-                        .padding(start = 7.dp, end = 7.dp)
+                        .padding(start = 8.dp, end = 8.dp)
                         .size(50.dp)
 
                 )
 
                 Text(
-                    text = "2"
+                    text = "7"
                 )
             }
             Box(
@@ -352,30 +352,13 @@ fun CalenderDays() {
                     painter = painterResource(calenderSquare),
                     contentDescription = "Calender Square",
                     modifier = Modifier
-                        .padding(start = 7.dp, end = 7.dp)
+                        .padding(start = 8.dp, end = 8.dp)
                         .size(50.dp)
 
                 )
 
                 Text(
-                    text = "3"
-                )
-            }
-
-            Box(
-                contentAlignment = Alignment.Center
-            ) {
-                Image(
-                    painter = painterResource(calenderSquare),
-                    contentDescription = "Calender Square",
-                    modifier = Modifier
-                        .padding(start = 7.dp, end = 7.dp)
-                        .size(50.dp)
-
-                )
-
-                Text(
-                    text = "4"
+                    text = "8"
                 )
             }
 
@@ -386,33 +369,13 @@ fun CalenderDays() {
                     painter = painterResource(calenderSquare),
                     contentDescription = "Calender Square",
                     modifier = Modifier
-                        .padding(start = 7.dp, end = 7.dp)
+                        .padding(start = 8.dp, end = 8.dp)
                         .size(50.dp)
 
                 )
 
                 Text(
-                    text = "5"
-                )
-            }
-        }
-
-        Row(
-            modifier = Modifier
-        ) {
-            Box(
-                contentAlignment = Alignment.Center
-            ) {
-                Image(
-                    painter = painterResource(calenderSquare),
-                    contentDescription = "Calender Square",
-                    modifier = Modifier
-                        .padding(start = 7.dp, end = 7.dp)
-                        .size(50.dp)
-                )
-
-                Text(
-                    text = "1"
+                    text = "9"
                 )
             }
 
@@ -423,63 +386,13 @@ fun CalenderDays() {
                     painter = painterResource(calenderSquare),
                     contentDescription = "Calender Square",
                     modifier = Modifier
-                        .padding(start = 7.dp, end = 7.dp)
+                        .padding(start = 8.dp, end = 8.dp)
                         .size(50.dp)
 
                 )
 
                 Text(
-                    text = "2"
-                )
-            }
-            Box(
-                contentAlignment = Alignment.Center
-            ) {
-                Image(
-                    painter = painterResource(calenderSquare),
-                    contentDescription = "Calender Square",
-                    modifier = Modifier
-                        .padding(start = 7.dp, end = 7.dp)
-                        .size(50.dp)
-
-                )
-
-                Text(
-                    text = "3"
-                )
-            }
-
-            Box(
-                contentAlignment = Alignment.Center
-            ) {
-                Image(
-                    painter = painterResource(calenderSquare),
-                    contentDescription = "Calender Square",
-                    modifier = Modifier
-                        .padding(start = 7.dp, end = 7.dp)
-                        .size(50.dp)
-
-                )
-
-                Text(
-                    text = "4"
-                )
-            }
-
-            Box(
-                contentAlignment = Alignment.Center
-            ) {
-                Image(
-                    painter = painterResource(calenderSquare),
-                    contentDescription = "Calender Square",
-                    modifier = Modifier
-                        .padding(start = 7.dp, end = 7.dp)
-                        .size(50.dp)
-
-                )
-
-                Text(
-                    text = "5"
+                    text = "10"
                 )
             }
         }
@@ -494,12 +407,12 @@ fun CalenderDays() {
                     painter = painterResource(calenderSquare),
                     contentDescription = "Calender Square",
                     modifier = Modifier
-                        .padding(start = 7.dp, end = 7.dp)
+                        .padding(start = 8.dp, end = 8.dp)
                         .size(50.dp)
                 )
 
                 Text(
-                    text = "1"
+                    text = "11"
                 )
             }
 
@@ -510,13 +423,13 @@ fun CalenderDays() {
                     painter = painterResource(calenderSquare),
                     contentDescription = "Calender Square",
                     modifier = Modifier
-                        .padding(start = 7.dp, end = 7.dp)
+                        .padding(start = 8.dp, end = 8.dp)
                         .size(50.dp)
 
                 )
 
                 Text(
-                    text = "2"
+                    text = "12"
                 )
             }
             Box(
@@ -526,30 +439,13 @@ fun CalenderDays() {
                     painter = painterResource(calenderSquare),
                     contentDescription = "Calender Square",
                     modifier = Modifier
-                        .padding(start = 7.dp, end = 7.dp)
+                        .padding(start = 8.dp, end = 8.dp)
                         .size(50.dp)
 
                 )
 
                 Text(
-                    text = "3"
-                )
-            }
-
-            Box(
-                contentAlignment = Alignment.Center
-            ) {
-                Image(
-                    painter = painterResource(calenderSquare),
-                    contentDescription = "Calender Square",
-                    modifier = Modifier
-                        .padding(start = 7.dp, end = 7.dp)
-                        .size(50.dp)
-
-                )
-
-                Text(
-                    text = "4"
+                    text = "13"
                 )
             }
 
@@ -560,13 +456,30 @@ fun CalenderDays() {
                     painter = painterResource(calenderSquare),
                     contentDescription = "Calender Square",
                     modifier = Modifier
-                        .padding(start = 7.dp, end = 7.dp)
+                        .padding(start = 8.dp, end = 8.dp)
                         .size(50.dp)
 
                 )
 
                 Text(
-                    text = "5"
+                    text = "14"
+                )
+            }
+
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 8.dp, end = 8.dp)
+                        .size(50.dp)
+
+                )
+
+                Text(
+                    text = "15"
                 )
             }
         }
@@ -581,12 +494,12 @@ fun CalenderDays() {
                     painter = painterResource(calenderSquare),
                     contentDescription = "Calender Square",
                     modifier = Modifier
-                        .padding(start = 7.dp, end = 7.dp)
+                        .padding(start = 8.dp, end = 8.dp)
                         .size(50.dp)
                 )
 
                 Text(
-                    text = "1"
+                    text = "16"
                 )
             }
 
@@ -597,13 +510,13 @@ fun CalenderDays() {
                     painter = painterResource(calenderSquare),
                     contentDescription = "Calender Square",
                     modifier = Modifier
-                        .padding(start = 7.dp, end = 7.dp)
+                        .padding(start = 8.dp, end = 8.dp)
                         .size(50.dp)
 
                 )
 
                 Text(
-                    text = "2"
+                    text = "17"
                 )
             }
             Box(
@@ -613,30 +526,13 @@ fun CalenderDays() {
                     painter = painterResource(calenderSquare),
                     contentDescription = "Calender Square",
                     modifier = Modifier
-                        .padding(start = 7.dp, end = 7.dp)
+                        .padding(start = 8.dp, end = 8.dp)
                         .size(50.dp)
 
                 )
 
                 Text(
-                    text = "3"
-                )
-            }
-
-            Box(
-                contentAlignment = Alignment.Center
-            ) {
-                Image(
-                    painter = painterResource(calenderSquare),
-                    contentDescription = "Calender Square",
-                    modifier = Modifier
-                        .padding(start = 7.dp, end = 7.dp)
-                        .size(50.dp)
-
-                )
-
-                Text(
-                    text = "4"
+                    text = "18"
                 )
             }
 
@@ -647,13 +543,30 @@ fun CalenderDays() {
                     painter = painterResource(calenderSquare),
                     contentDescription = "Calender Square",
                     modifier = Modifier
-                        .padding(start = 7.dp, end = 7.dp)
+                        .padding(start = 8.dp, end = 8.dp)
                         .size(50.dp)
 
                 )
 
                 Text(
-                    text = "5"
+                    text = "19"
+                )
+            }
+
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(calenderSquare),
+                    contentDescription = "Calender Square",
+                    modifier = Modifier
+                        .padding(start = 8.dp, end = 8.dp)
+                        .size(50.dp)
+
+                )
+
+                Text(
+                    text = "20"
                 )
             }
         }
