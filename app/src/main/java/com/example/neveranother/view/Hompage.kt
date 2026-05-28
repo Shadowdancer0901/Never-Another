@@ -27,6 +27,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.neveranother.R
 import com.example.neveranother.ui.theme.White
+import com.example.neveranother.viewModel.BookingPage
 import com.example.neveranother.viewModel.MeasurementPage
 
 //Maja
@@ -105,7 +106,7 @@ fun Homepage(navController: NavController) {
                     .fillMaxSize(),
                     contentAlignment = Alignment.Center){
                     Button(
-                        onClick = {},
+                        onClick = {navController.navigate(BookingPage)},
                         colors = ButtonDefaults.buttonColors(
                             containerColor = White,
                         ),

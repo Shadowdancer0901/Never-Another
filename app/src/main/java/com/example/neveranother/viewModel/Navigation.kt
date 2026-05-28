@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.neveranother.view.Booking
 import com.example.neveranother.view.Homepage
 import com.example.neveranother.view.MeasurementPage
 import com.example.neveranother.view.ProductPageScreen
@@ -17,6 +18,10 @@ object HomePage
 
 @Serializable
 object MeasurementPage
+
+@Serializable
+object BookingPage {
+}
 
 @Composable
 fun AppNavigation() {
@@ -34,6 +39,9 @@ fun AppNavigation() {
         }
         composable<MeasurementPage> {
             MeasurementPage(navController = navController)
+        }
+        composable<BookingPage> {
+            Booking(navController = navController)
         }
     }
 }

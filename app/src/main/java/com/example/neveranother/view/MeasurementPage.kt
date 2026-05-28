@@ -55,6 +55,7 @@ import com.example.neveranother.R
 import com.example.neveranother.ui.theme.Gray
 import com.example.neveranother.ui.theme.Salmon
 import com.example.neveranother.ui.theme.White
+import com.example.neveranother.viewModel.BookingPage
 import com.example.neveranother.viewModel.MeasurementPage
 import com.example.neveranother.viewModel.ProductPage
 
@@ -66,7 +67,7 @@ fun MeasurementPage(navController: NavController) {
     val loops = 1000
     val virtualCount = itemCount * loops
     val initialPage = (virtualCount / 2 - ((virtualCount / 2) % itemCount))
-    val pagerState = rememberPagerState(initialPage = initialPage, pageCount = { virtualCount })
+    var pagerState = rememberPagerState(initialPage = initialPage, pageCount = { virtualCount })
 
     //Info video values
     val openDialog = remember { mutableIntStateOf(0) }
@@ -105,6 +106,7 @@ fun MeasurementPage(navController: NavController) {
                 val actualIndex = i % itemCount
                 val MkList = MeasurementpagePictures[actualIndex]
 
+                //Knapper = Chris, Image = Maja
                 Box(
                     modifier = Modifier
                         .fillMaxSize(),
@@ -317,11 +319,17 @@ fun MeasurementPage(navController: NavController) {
                 // https://kotlinandroid.org/android-jetpack-compose-set-button-background-color/
                 else -> {
                     Text("Usikker på størrelsen?", fontSize = 8.sp)
-                    Text(
-                        "Bestil free fitting",
-                        fontSize = 8.sp,
-                        textDecoration = TextDecoration.Underline
-                    )
+                    TextButton(
+                        onClick = {navController.navigate(BookingPage)},
+                        modifier = Modifier
+                            .size(width = 100.dp, height = 30.dp)
+                    ){
+                        Text(
+                            text = "Bestil free fitting",
+                            fontSize = 8.sp,
+                            textDecoration = TextDecoration.Underline
+                        )
+                    }
 
                     //Brugt dette link til at lave style knappen:
                     // https://kotlinandroid.org/android-jetpack-compose-set-button-background-color/
