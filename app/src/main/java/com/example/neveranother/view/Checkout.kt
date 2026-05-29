@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.neveranother.ui.theme.Salmon
+import com.example.neveranother.ui.theme.White
 import com.example.neveranother.viewModel.MeasurementPage
 import com.example.neveranother.viewModel.MeasurementVM
 
@@ -42,6 +43,7 @@ fun CheckoutPopUp(viewModel: MeasurementVM
 
     if (showCheckoutDialog) {
         AlertDialog(
+            containerColor = White,
             onDismissRequest = { showCheckoutDialog = false },
             text = { OrderConfirmationScreen(viewModel) },
             confirmButton = {

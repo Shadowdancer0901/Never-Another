@@ -87,8 +87,9 @@ fun MeasurementPage(navController: NavController, measurementViewModel: Measurem
     ) { innerPadding ->
         LazyColumn(
             modifier = Modifier
+                .background(White)
                 .padding(innerPadding)
-                .background(White),
+                ,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 

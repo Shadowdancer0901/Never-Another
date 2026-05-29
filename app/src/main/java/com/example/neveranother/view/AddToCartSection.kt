@@ -1,6 +1,7 @@
 package com.example.neveranother.view
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -27,6 +28,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.neveranother.ui.theme.White
 import com.example.neveranother.viewModel.MeasurementPage
 import com.example.neveranother.viewModel.MeasurementVM
 
@@ -41,9 +43,11 @@ fun AddToCartSection(viewModel: MeasurementVM, navController: NavController) {
     // Popup hvis measurements mangler
     if (showMeasurementDialog) {
         AlertDialog(
+            containerColor = White,
             onDismissRequest = { showMeasurementDialog = false },
             title = { Text("Mål mangler") },
-            text = { Text("Du skal indtaste dine mål inden du kan tilføje til kurven.") },
+            text = { Text("Du skal indtaste dine mål inden du kan tilføje til kurven.")
+                   },
             confirmButton = {
                 Button(
                     onClick = {
