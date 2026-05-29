@@ -2,6 +2,7 @@ package com.example.neveranother.model
 
 import androidx.compose.ui.graphics.Color
 
+//Mathias
 data class Produkt(
     val name: String,
     val description: String,

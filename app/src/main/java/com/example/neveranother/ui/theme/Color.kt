@@ -11,7 +11,10 @@ val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 
 //N.A farver
+//Maja
 val White = Color(0xFFFFFFFF)
+
+//Temp colors were used during viewmodel setup, to make it easier to see borders and padding while the page underwent work.
 val tempColor2 = Color(0xFF01C1CC)
 val tempColor1 = Color(0xFF96D6DA)
 
