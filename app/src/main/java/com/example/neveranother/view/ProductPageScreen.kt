@@ -55,9 +55,9 @@ fun ProductPageScreen(navController: NavController, measurementViewModel: Measur
     ) { innerPadding ->
     LazyColumn(
         modifier = Modifier
+            .background(White)
             .padding(innerPadding)
             .fillMaxSize()
-            .background(White)
             //.windowInsetsPadding(WindowInsets.statusBars) // i have added this to make my app not overlap with top bar on phones
 
     ) {

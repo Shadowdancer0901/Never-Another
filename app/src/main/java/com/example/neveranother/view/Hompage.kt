@@ -56,8 +56,8 @@ fun Homepage(navController: NavController) {
     ) { innerPadding ->
         LazyColumn(
             modifier = Modifier
-                .padding(innerPadding)
-                .background(color = White),
+                .background(color = White)
+                .padding(innerPadding),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
