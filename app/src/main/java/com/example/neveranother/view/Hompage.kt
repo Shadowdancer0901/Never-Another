@@ -21,6 +21,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -55,7 +56,8 @@ fun Homepage(navController: NavController) {
     ) { innerPadding ->
         LazyColumn(
             modifier = Modifier
-                .padding(innerPadding),
+                .padding(innerPadding)
+                .background(color = White),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
@@ -118,7 +120,7 @@ fun Homepage(navController: NavController) {
                             contentDescription = "",
                             modifier = Modifier
                                 .width(414.dp)
-                                .height(340.dp)
+                                .height(380.dp)
                         )
                     }
                 }
@@ -128,8 +130,7 @@ fun Homepage(navController: NavController) {
             item {
                 Box(modifier = Modifier
                     .fillMaxSize()
-                    .padding(vertical = 10.dp, horizontal = 25.dp)
-                    .background(White),
+                    .padding(vertical = 10.dp, horizontal = 25.dp),
                     contentAlignment = Alignment.Center){
                         Text("Our mission")
                 }

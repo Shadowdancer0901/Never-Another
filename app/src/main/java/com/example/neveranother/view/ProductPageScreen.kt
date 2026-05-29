@@ -2,6 +2,7 @@ package com.example.neveranother.view
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -56,6 +57,7 @@ fun ProductPageScreen(navController: NavController, measurementViewModel: Measur
         modifier = Modifier
             .padding(innerPadding)
             .fillMaxSize()
+            .background(White)
             //.windowInsetsPadding(WindowInsets.statusBars) // i have added this to make my app not overlap with top bar on phones
 
     ) {
@@ -222,7 +224,7 @@ fun ProductPageScreen(navController: NavController, measurementViewModel: Measur
         }
 
         item {
-                Spacer(Modifier.height(30.dp))
+                Spacer(Modifier.height(30.dp).background(White))
             }
         }
     }

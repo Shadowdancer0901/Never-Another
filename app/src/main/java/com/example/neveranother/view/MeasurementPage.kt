@@ -3,6 +3,7 @@ package com.example.neveranother.view
 import android.content.Context
 import androidx.annotation.OptIn
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -86,7 +87,8 @@ fun MeasurementPage(navController: NavController, measurementViewModel: Measurem
     ) { innerPadding ->
         LazyColumn(
             modifier = Modifier
-                .padding(innerPadding),
+                .padding(innerPadding)
+                .background(White),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
