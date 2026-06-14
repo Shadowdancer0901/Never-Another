@@ -30,11 +30,11 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.neveranother.ui.theme.White
 import com.example.neveranother.viewModel.MeasurementPage
-import com.example.neveranother.viewModel.MeasurementVM
+import com.example.neveranother.viewModel.MeasurementViewModel
 
 //Mathias
 @Composable
-fun AddToCartSection(viewModel: MeasurementVM, navController: NavController) {
+fun AddToCartSection(viewModel: MeasurementViewModel, navController: NavController) {
     var quantity by remember { mutableStateOf(1) }
     var showMeasurementDialog by remember { mutableStateOf(false) }
 

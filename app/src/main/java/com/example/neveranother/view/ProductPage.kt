@@ -35,11 +35,11 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.neveranother.R
 import com.example.neveranother.ui.theme.White
-import com.example.neveranother.viewModel.MeasurementVM
+import com.example.neveranother.viewModel.MeasurementViewModel
 
 // Mathias
 @Composable
-fun ProductPageScreen(navController: NavController, measurementViewModel: MeasurementVM){ // TODO hoist ud alt tekst
+fun ProductPageScreen(navController: NavController, measurementViewModel: MeasurementViewModel){ // TODO hoist ud alt tekst
     //Carousel values
     val itemCount = ProductpagePictures.size
     val loops = 1000

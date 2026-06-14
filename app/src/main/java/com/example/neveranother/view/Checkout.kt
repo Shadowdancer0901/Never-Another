@@ -1,21 +1,15 @@
 package com.example.neveranother.view
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -27,16 +21,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import com.example.neveranother.ui.theme.Salmon
 import com.example.neveranother.ui.theme.White
-import com.example.neveranother.viewModel.MeasurementPage
-import com.example.neveranother.viewModel.MeasurementVM
+import com.example.neveranother.viewModel.MeasurementViewModel
 
 // Mathias
 //Mathias
 @Composable
-fun CheckoutPopUp(viewModel: MeasurementVM
+fun CheckoutPopUp(viewModel: MeasurementViewModel
 ){
 
     var showCheckoutDialog by remember { mutableStateOf(true) }
@@ -64,7 +56,7 @@ fun CheckoutPopUp(viewModel: MeasurementVM
 }
 
 @Composable
-fun OrderConfirmationScreen(viewModel: MeasurementVM) {
+fun OrderConfirmationScreen(viewModel: MeasurementViewModel) {
     Column(
         modifier = Modifier
             .fillMaxSize()

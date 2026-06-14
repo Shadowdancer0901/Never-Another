@@ -18,7 +18,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -28,11 +27,9 @@ import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TextFieldLabelPosition
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -61,12 +58,12 @@ import com.example.neveranother.ui.theme.Salmon
 import com.example.neveranother.ui.theme.White
 import com.example.neveranother.viewModel.BookingPage
 import com.example.neveranother.viewModel.MeasurementPage
-import com.example.neveranother.viewModel.MeasurementVM
+import com.example.neveranother.viewModel.MeasurementViewModel
 import com.example.neveranother.viewModel.ProductPage
 
 //Chris
 @Composable
-fun MeasurementPage(navController: NavController, measurementViewModel: MeasurementVM) {
+fun MeasurementPage(navController: NavController, measurementViewModel: MeasurementViewModel) {
 
     //Carousel values
     val itemCount = MeasurementpagePictures.size

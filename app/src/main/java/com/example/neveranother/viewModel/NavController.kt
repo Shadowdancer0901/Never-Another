@@ -27,7 +27,7 @@ object BookingPage {
 @Composable
 fun AppNavigation() {
     val navController = rememberNavController()
-    val measurementViewModel: MeasurementVM = viewModel()
+    val measurementViewModel: MeasurementViewModel = viewModel()
 
     NavHost(
         navController = navController,

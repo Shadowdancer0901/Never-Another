@@ -25,11 +25,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.neveranother.viewModel.MeasurementVM
+import com.example.neveranother.viewModel.MeasurementViewModel
 
 // Mathias
 @Composable
-fun ColorSelection(viewModel: MeasurementVM) {
+fun ColorSelection(viewModel: MeasurementViewModel) {
     val colorOptions = listOf(  // TODO skal hoistes ud fra her og så skal den have en liste(af farver, fra en produkt model) som parameter
         "Hvid" to Color.White,
         "Sort" to Color.Black
