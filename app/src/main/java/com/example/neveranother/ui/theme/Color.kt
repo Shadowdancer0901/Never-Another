@@ -31,5 +31,3 @@ val Cream = Color(0xFFFFFFEA)
 val DarkBlue = Color(0xFF3A1772)
 
 val WarmBrown = Color(0xFFA15039)
-
-val hi = Color(0xFFFFFFFF)

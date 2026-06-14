@@ -46,6 +46,7 @@ fun Homepage(navController: NavController) {
     val TextBoxMod = Modifier
         .fillMaxSize()
         .padding(vertical = 10.dp, horizontal = 25.dp)
+
     val pictureBoxMod = Modifier.fillMaxSize()
 
     Scaffold(

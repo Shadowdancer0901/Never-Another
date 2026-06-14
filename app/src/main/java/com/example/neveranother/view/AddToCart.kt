@@ -28,6 +28,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.neveranother.ui.theme.Black
+import com.example.neveranother.ui.theme.Salmon
 import com.example.neveranother.ui.theme.White
 import com.example.neveranother.viewModel.MeasurementPage
 import com.example.neveranother.viewModel.MeasurementViewModel
@@ -48,27 +50,27 @@ fun AddToCartSection(viewModel: MeasurementViewModel, navController: NavControll
             title = { Text("Mål mangler") },
             text = { Text("Du skal indtaste dine mål inden du kan tilføje til kurven.")
                    },
+
             confirmButton = {
                 Button(
                     onClick = {
                         showMeasurementDialog = false
                         navController.navigate(MeasurementPage)  // send til measurement screen
                     },
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFFEE9981)
-                    )
+
+                    colors = ButtonDefaults.buttonColors(Salmon)
                 ) {
                     Text("Indtast mål")
                 }
             },
+
             dismissButton = {
                 TextButton(onClick = { showMeasurementDialog = false }) {
-                    Text("Annuller", color = Color(0xFFEE9981))
+                    Text("Annuller", color = Salmon)
                 }
             }
         )
     }
-
 
     // slut pop up
 
@@ -79,17 +81,18 @@ fun AddToCartSection(viewModel: MeasurementViewModel, navController: NavControll
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(12.dp)
     ) {
+
         // Minus knap
         Box(
             modifier = Modifier
                 .size(36.dp)
-                .border(1.5.dp, Color(0xFFEE9981), RoundedCornerShape(8.dp))
+                .border(1.5.dp, Salmon, RoundedCornerShape(8.dp))
                 .clickable { if (quantity > 1) quantity-- },
             contentAlignment = Alignment.Center
         ) {
             Text(
                 text = "−",
-                color = Color(0xFFEE9981),
+                color = Salmon,
                 fontSize = 20.sp
             )
         }
@@ -98,20 +101,20 @@ fun AddToCartSection(viewModel: MeasurementViewModel, navController: NavControll
         Text(
             text = quantity.toString(),
             fontSize = 18.sp,
-            color = Color.Black
+            color = Black
         )
 
         // Plus knap
         Box(
             modifier = Modifier
                 .size(36.dp)
-                .border(1.5.dp, Color(0xFFEE9981), RoundedCornerShape(8.dp))
+                .border(1.5.dp, Salmon, RoundedCornerShape(8.dp))
                 .clickable { quantity++ },
             contentAlignment = Alignment.Center
         ) {
             Text(
                 text = "+",
-                color = Color(0xFFEE9981),
+                color = Salmon,
                 fontSize = 20.sp
             )
         }
@@ -128,10 +131,10 @@ fun AddToCartSection(viewModel: MeasurementViewModel, navController: NavControll
             modifier = Modifier
                 .height(44.dp),
             colors = ButtonDefaults.outlinedButtonColors(
-                contentColor = Color(0xFFEE9981),
+                contentColor = Salmon,
                 containerColor = Color.Transparent
             ),
-            border = BorderStroke(1.5.dp, Color(0xFFEE9981)),
+            border = BorderStroke(1.5.dp, Salmon),
             shape = RoundedCornerShape(50.dp)
         ) {
             Text(text = "Tilføj til kurv", fontSize = 14.sp)

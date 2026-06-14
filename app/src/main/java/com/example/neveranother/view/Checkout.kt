@@ -21,12 +21,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.neveranother.ui.theme.Black
 import com.example.neveranother.ui.theme.Salmon
 import com.example.neveranother.ui.theme.White
 import com.example.neveranother.viewModel.MeasurementViewModel
 
 // Mathias
-//Mathias
 @Composable
 fun CheckoutPopUp(viewModel: MeasurementViewModel
 ){
@@ -43,9 +43,7 @@ fun CheckoutPopUp(viewModel: MeasurementViewModel
                     onClick = {
                         showCheckoutDialog = false
                     },
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFFEE9981)
-                    )
+                    colors = ButtonDefaults.buttonColors(Salmon)
                 ) {
                     Text("OK")
                 }
@@ -91,7 +89,7 @@ fun OrderConfirmationScreen(viewModel: MeasurementViewModel) {
                     "Bryst højde: ${viewModel.breastHeight}\n" +
                     "Bryst bredde: ${viewModel.breastWidth}\n",
             fontSize = 20.sp,
-            color = Color.Black,
+            color = Black,
             textAlign = TextAlign.Center
         )
     }

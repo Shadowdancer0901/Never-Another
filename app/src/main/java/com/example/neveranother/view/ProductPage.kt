@@ -34,6 +34,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.neveranother.R
+import com.example.neveranother.ui.theme.Black
+import com.example.neveranother.ui.theme.Salmon
 import com.example.neveranother.ui.theme.White
 import com.example.neveranother.viewModel.MeasurementViewModel
 
@@ -113,7 +115,7 @@ fun ProductPageScreen(navController: NavController, measurementViewModel: Measur
                 text = "Bra no. 1",
                 fontSize = 32.sp,
                 style = MaterialTheme.typography.titleLarge,
-                color = Color(0xFFEE9981),
+                color = Salmon,
                 modifier = Modifier
                     .fillMaxWidth(),
                 textAlign = TextAlign.Center
@@ -130,7 +132,7 @@ fun ProductPageScreen(navController: NavController, measurementViewModel: Measur
             Text(
                 text = "Mød din nye yndlings-bh - skabt ved hjælp af vores algoritme til brugerdefineret pasform og skræddersyet til at passe perfekt til dine mål. Denne bh er skabt til dig.",
                 fontSize = 14.sp,
-                color = Color(0xFF000000),
+                color = Black,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
                     .padding(horizontal = 62.dp))
@@ -207,10 +209,10 @@ fun ProductPageScreen(navController: NavController, measurementViewModel: Measur
                         .height(44.dp)
                         .padding(horizontal = 40.dp),
                     colors = ButtonDefaults.outlinedButtonColors(
-                        contentColor = Color(0xFFEE9981),
+                        contentColor = Salmon,
                         containerColor = Color.Transparent
                     ),
-                    border = BorderStroke(1.5.dp, Color(0xFFEE9981)),
+                    border = BorderStroke(1.5.dp, Salmon),
                     shape = RoundedCornerShape(50.dp)
                 ) {
                     Text(

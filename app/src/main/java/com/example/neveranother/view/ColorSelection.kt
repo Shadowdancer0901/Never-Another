@@ -25,14 +25,17 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.neveranother.ui.theme.Black
+import com.example.neveranother.ui.theme.Salmon
+import com.example.neveranother.ui.theme.White
 import com.example.neveranother.viewModel.MeasurementViewModel
 
 // Mathias
 @Composable
 fun ColorSelection(viewModel: MeasurementViewModel) {
     val colorOptions = listOf(  // TODO skal hoistes ud fra her og så skal den have en liste(af farver, fra en produkt model) som parameter
-        "Hvid" to Color.White,
-        "Sort" to Color.Black
+        "Hvid" to White,  //There is no reason to write Color.White when the color has already been specified in out Color.kt. You can simply call it by the name of the val. - Maja
+        "Sort" to Black
     )
     var selectedColor by remember { mutableStateOf("Hvid") }
     viewModel.tempProductColor = selectedColor
@@ -45,7 +48,7 @@ fun ColorSelection(viewModel: MeasurementViewModel) {
         Text(
             text = "Color: $selectedColor",
             fontSize = 20.sp,
-            color = Color(0xFFEE9981),
+            color = Salmon,
             style = MaterialTheme.typography.titleLarge
         )
 
@@ -78,7 +81,7 @@ fun ColorCircle(
             .background(color)
             .border(
                 width = if (isSelected) 2.dp else 1.dp,
-                color = if (isSelected) Color(0xFFEE9981) else Color.LightGray,
+                color = if (isSelected) Salmon else Color.LightGray,
                 shape = CircleShape
             )
             .clickable { onClick() }
