@@ -32,18 +32,25 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.neveranother.R
 import com.example.neveranother.ui.theme.Black
 import com.example.neveranother.ui.theme.Salmon
 import com.example.neveranother.ui.theme.White
+import com.example.neveranother.viewModel.PngCaller
 import com.example.neveranother.viewModel.MeasurementViewModel
 
 // Mathias
 @Composable
-fun ProductPageScreen(navController: NavController, measurementViewModel: MeasurementViewModel){ // TODO hoist ud alt tekst
+fun ProductPageScreen(
+    navController: NavController,
+    measurementViewModel: MeasurementViewModel,
+    pngCaller: PngCaller = viewModel()
+    ){ // TODO hoist ud alt tekst
+
     //Carousel values
-    val itemCount = ProductpagePictures.size
+    val itemCount = pngCaller.ProductpageCarouselPictures.size
     val loops = 1000
     val virtualCount = itemCount * loops
     val initialPage = (virtualCount / 2 - ((virtualCount / 2) % itemCount))
@@ -91,7 +98,7 @@ fun ProductPageScreen(navController: NavController, measurementViewModel: Measur
                     .padding(vertical = 10.dp)
             ) { i ->
                 val actualIndex = i % itemCount
-                val PkList = ProductpagePictures[actualIndex]
+                val PkList = pngCaller.ProductpageCarouselPictures[actualIndex]
 
                 Box(
                     modifier = Modifier
@@ -176,7 +183,7 @@ fun ProductPageScreen(navController: NavController, measurementViewModel: Measur
 
         item {
             "tilføj til kurv del"
-            AddToCartSection(measurementViewModel, navController)
+            AddToCartSection(measurementViewModel, navController,)
         }
 
         item{ // TODO , skal der laves om på hvor denne info står? eller lader vi den stå her direkte?--- der står info om garanti og info

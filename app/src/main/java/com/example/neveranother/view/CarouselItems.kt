@@ -26,7 +26,7 @@ val HomepagePictures = listOf(
     CarouselItems(14, R.drawable.bk_15,"Picture 15",593.dp, 414.dp),
 )
 
-val ProductpagePictures = listOf(
+val ProductpagePictures= listOf(
     CarouselItems(0, R.drawable.sort_bh_front,"Picture 1", 520.dp, 414.dp),
     CarouselItems(1, R.drawable.sort_bh_ryg,"Picture 2", 520.dp, 414.dp),
     CarouselItems(2, R.drawable.hvid_bh_front, "Picture 3", 520.dp,414.dp),

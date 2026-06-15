@@ -1,6 +1,5 @@
 package com.example.neveranother.view
 
-import android.view.View
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -21,22 +20,25 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import com.example.neveranother.R
 import com.example.neveranother.ui.theme.White
 import com.example.neveranother.viewModel.BookingPage
+import com.example.neveranother.viewModel.PngCaller
 import com.example.neveranother.viewModel.MeasurementPage
 
 //Maja
 @Composable
-fun Homepage(navController: NavController) {
+fun Homepage(
+    navController: NavController,
+    pngCaller: PngCaller = viewModel()
+){
 
     //Carousel values
-    val itemCount = HomepagePictures.size
+    val itemCount = pngCaller.HomepageCarouselPictures.size
     val loops = 1000
     val virtualCount = itemCount * loops
     val initialPage = (virtualCount / 2 - ((virtualCount / 2) % itemCount))
@@ -289,7 +291,7 @@ fun Homepage(navController: NavController) {
                         .padding(vertical = 10.dp, horizontal = 10.dp)
                 ) { i ->
                     val actualIndex = i % itemCount
-                    val BkList = HomepagePictures[actualIndex]
+                    val BkList = pngCaller.HomepageCarouselPictures[actualIndex]
                     Box(
                         modifier = Modifier
                             .fillMaxSize(),

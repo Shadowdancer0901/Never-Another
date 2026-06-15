@@ -43,6 +43,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.ui.window.Popup
 import androidx.compose.ui.window.PopupProperties
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.media3.common.MediaItem.fromUri
 import androidx.media3.common.util.UnstableApi
 import androidx.media3.common.util.Util
@@ -57,16 +58,21 @@ import com.example.neveranother.ui.theme.Gray
 import com.example.neveranother.ui.theme.Salmon
 import com.example.neveranother.ui.theme.White
 import com.example.neveranother.viewModel.BookingPage
+import com.example.neveranother.viewModel.PngCaller
 import com.example.neveranother.viewModel.MeasurementPage
 import com.example.neveranother.viewModel.MeasurementViewModel
 import com.example.neveranother.viewModel.ProductPage
 
 //Chris
 @Composable
-fun MeasurementPage(navController: NavController, measurementViewModel: MeasurementViewModel) {
+fun MeasurementPage(
+    navController: NavController,
+    measurementViewModel: MeasurementViewModel,
+    pngCaller: PngCaller = viewModel()
+    ){
 
     //Carousel values
-    val itemCount = MeasurementpagePictures.size
+    val itemCount = pngCaller.MeasurementpageCarouselPictures.size
     val loops = 1000
     val virtualCount = itemCount * loops
     val initialPage = (virtualCount / 2 - ((virtualCount / 2) % itemCount))
@@ -113,7 +119,7 @@ fun MeasurementPage(navController: NavController, measurementViewModel: Measurem
                         .padding(top = 5.dp, bottom = 5.dp)
                 ) { i ->
                     val actualIndex = i % itemCount
-                    val MkList = MeasurementpagePictures[actualIndex]
+                    val MkList = pngCaller.MeasurementpageCarouselPictures[actualIndex]
 
                     //Knapper = Chris, Image = Maja
                     Box(

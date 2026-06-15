@@ -6,6 +6,7 @@ import androidx.compose.ui.unit.dp
 import com.example.neveranother.R
 
 //Maja
+/*
 data class NavbarPictures(val id: Int, @DrawableRes val imageRes: Int, val description: String, val pictureHeight: Dp, val pictureWidth: Dp)
 
 val NavbuttonPictures = listOf(
@@ -19,3 +20,4 @@ val NavbuttonPictures = listOf(
     NavbarPictures(6, R.drawable.kurv_button,"Basket button in DKK", 75.dp,50.dp),
     NavbarPictures(7, R.drawable.profile_button,"Profile button", 75.dp,50.dp),
 )
+*/

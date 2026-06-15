@@ -16,11 +16,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.neveranother.ui.theme.White
 import androidx.navigation.NavController
 import com.example.neveranother.R
 import com.example.neveranother.viewModel.HomePage
 import com.example.neveranother.viewModel.MeasurementPage
+import com.example.neveranother.viewModel.PngCaller
 import com.example.neveranother.viewModel.ProductPage
 
 //Maja
@@ -99,7 +102,9 @@ fun HomepageNavbar(navController: NavController){
 }
 
 @Composable
-fun BuyNavbar(navController: NavController){
+fun BuyNavbar(navController: NavController,
+              pngCaller: PngCaller = viewModel()
+              ){
     val buttonNavmod = Modifier
         .height(75.dp)
         .width(50.dp)
@@ -121,8 +126,8 @@ fun BuyNavbar(navController: NavController){
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier){
                 Image(
-                    painter = painterResource(id= R.drawable.home_button),
-                    contentDescription = "",
+                    painter = painterResource(id= pngCaller.NavbarIcons[4].imageRes),
+                    contentDescription = pngCaller.NavbarIcons[4].description,
                     modifier = buttonNavmod
                 )
             }
